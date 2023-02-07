@@ -219,6 +219,15 @@
                                 <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <color key="backgroundColor" name="YPBlack"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSr-Ch-Bf2">
+                                <rect key="frame" x="18" y="64" width="60" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="button_back"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="UfX-u1-rGa" eventType="touchUpInside" id="Rgn-rv-Iyr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="abF-0g-P5D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -236,12 +245,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVY-kh-9o5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3017" y="-724"/>
+            <point key="canvasLocation" x="3016.9230769230767" y="-724.4075829383886"/>
         </scene>
     </scenes>
     <resources>
         <image name="0" width="200" height="132"/>
         <image name="ava" width="46.666667938232422" height="46.666667938232422"/>
+        <image name="button_back" width="6" height="10.666666984558105"/>
         <image name="exitButton" width="13.333333015441895" height="14.666666984558105"/>
         <image name="liked" width="30" height="26"/>
         <image name="tab_editoral_active" width="13.333333015441895" height="14.666666984558105"/>
