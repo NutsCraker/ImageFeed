@@ -99,55 +99,12 @@
         <!--ProfileView-->
         <scene sceneID="Ldx-Jm-oRq">
             <objects>
-                <viewController title="ProfileView" id="46n-CR-4xc" sceneMemberID="viewController">
+                <viewController title="ProfileView" id="46n-CR-4xc" customClass="ProfileViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ogg-6i-oIS" customClass="ProfileViewController">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ava" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-lA-8jT" userLabel="Avatar Logo">
-                                <rect key="frame" x="16" y="123" width="70" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="dvf-Ku-oau"/>
-                                    <constraint firstAttribute="width" constant="70" id="uG7-yP-4vE"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xy-VE-fhq" userLabel="Exit Profile">
-                                <rect key="frame" x="344" y="147" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="6iM-em-Odm"/>
-                                    <constraint firstAttribute="width" constant="20" id="nfg-lc-RdF"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="exitButton">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                </buttonConfiguration>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Екатерина Новикова" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fes-Yd-UBL" userLabel="Profile Name">
-                                <rect key="frame" x="16" y="201" width="166.66666666666666" height="20"/>
-                                <accessibility key="accessibilityConfiguration" identifier="userProfileName"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" name="YPWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Екатерина Новикова" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyV-Cv-GNL" userLabel="Profile Name">
-                                <rect key="frame" x="16" y="233" width="165" height="20.333333333333371"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="userProfileName"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <color key="textColor" name="YPWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="EkP-KG-BmC"/>
                         <color key="backgroundColor" name="YPBackground"/>
-                        <constraints>
-                            <constraint firstItem="5xy-VE-fhq" firstAttribute="top" secondItem="EkP-KG-BmC" secondAttribute="top" constant="100" id="BoR-tF-zGk"/>
-                            <constraint firstItem="PqA-lA-8jT" firstAttribute="leading" secondItem="EkP-KG-BmC" secondAttribute="leading" constant="16" id="Osv-K5-Lt3"/>
-                            <constraint firstItem="EkP-KG-BmC" firstAttribute="trailing" secondItem="5xy-VE-fhq" secondAttribute="trailing" constant="26" id="Q4R-k0-W9u"/>
-                            <constraint firstItem="fes-Yd-UBL" firstAttribute="top" secondItem="EkP-KG-BmC" secondAttribute="top" constant="154" id="XVk-ms-eNu"/>
-                            <constraint firstItem="fes-Yd-UBL" firstAttribute="leading" secondItem="EkP-KG-BmC" secondAttribute="leading" constant="16" id="jgY-ns-b0s"/>
-                            <constraint firstItem="PqA-lA-8jT" firstAttribute="top" secondItem="EkP-KG-BmC" secondAttribute="top" constant="76" id="k6i-wz-io4"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tab_profile_active" id="ldI-xB-yfo"/>
                 </viewController>
@@ -238,7 +195,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="button_back" title=" "/>
                                 <connections>
-                                    <action selector="DidTap:" destination="KOk-2l-5mm" eventType="touchDown" id="EA5-pO-UKs"/>
+                                    <action selector="DidTapBackButton:" destination="KOk-2l-5mm" eventType="touchDown" id="V4h-dd-Xtg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSg-eC-Bqx" userLabel="Sharing">
@@ -249,6 +206,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="sharing" title=" "/>
+                                <connections>
+                                    <action selector="DidTapSharingButton:" destination="KOk-2l-5mm" eventType="touchDown" id="nM5-Q5-Csf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZMb-4K-UFX"/>
@@ -278,9 +238,7 @@
     </scenes>
     <resources>
         <image name="0" width="200" height="132"/>
-        <image name="ava" width="46.666667938232422" height="46.666667938232422"/>
         <image name="button_back" width="6" height="10.666666984558105"/>
-        <image name="exitButton" width="13.333333015441895" height="14.666666984558105"/>
         <image name="liked" width="30" height="26"/>
         <image name="sharing" width="51" height="50"/>
         <image name="tab_editoral_active" width="13.333333015441895" height="14.666666984558105"/>

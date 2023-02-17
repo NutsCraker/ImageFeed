@@ -19,11 +19,18 @@ final class SingleImageViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
+
     
-    @IBAction func DidTap(_ sender: UIButton) {dismiss(animated: true,completion: nil)
+    
+    @IBAction func DidTapSharingButton(_ sender: Any)  {
+        
+        let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    
     }
-   
- 
+    @IBAction func DidTapBackButton(_ sender: UIButton) {dismiss(animated: true,completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
