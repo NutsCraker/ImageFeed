@@ -237,6 +237,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="button_back" title=" "/>
+                                <connections>
+                                    <action selector="DidTap:" destination="KOk-2l-5mm" eventType="touchDown" id="EA5-pO-UKs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSg-eC-Bqx" userLabel="Sharing">
                                 <rect key="frame" x="170" y="722" width="50" height="50"/>
@@ -264,8 +267,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="P1l-Ea-MEs"/>
                     <connections>
-                        <outlet property="imageView" destination="GXu-Cr-a6b" id="i4Z-kZ-Et5"/>
-                        <outlet property="scrollView" destination="o8K-0P-iC2" id="pbq-xe-oai"/>
+                        <outlet property="imageView" destination="GXu-Cr-a6b" id="cMO-7L-pQx"/>
+                        <outlet property="scrollView" destination="o8K-0P-iC2" id="dq4-Ru-cY6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9UO-W6-fd0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
