@@ -58,6 +58,8 @@
                                                 <constraint firstItem="bQQ-fV-5p4" firstAttribute="top" secondItem="7kV-Iu-Xtl" secondAttribute="top" constant="4" id="5iL-dH-5h6"/>
                                                 <constraint firstItem="bQQ-fV-5p4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tzD-Ta-Duz" secondAttribute="trailing" constant="8" id="FJk-z0-Vjg"/>
                                                 <constraint firstItem="tzD-Ta-Duz" firstAttribute="leading" secondItem="bQQ-fV-5p4" secondAttribute="leading" constant="8" id="Nvn-I5-Pct" userLabel="Date Label.leading = Cell Image.leading +8"/>
+                                                <constraint firstAttribute="trailing" secondItem="bQQ-fV-5p4" secondAttribute="trailing" constant="16" id="hUf-zI-9op"/>
+                                                <constraint firstItem="bQQ-fV-5p4" firstAttribute="leading" secondItem="7kV-Iu-Xtl" secondAttribute="leading" constant="16" id="kRS-Nm-do7"/>
                                                 <constraint firstItem="bQQ-fV-5p4" firstAttribute="trailing" secondItem="da8-JB-ha6" secondAttribute="trailing" id="n1g-KD-IgI"/>
                                                 <constraint firstItem="bQQ-fV-5p4" firstAttribute="top" secondItem="da8-JB-ha6" secondAttribute="top" id="pp3-0m-as1"/>
                                                 <constraint firstAttribute="trailing" secondItem="bQQ-fV-5p4" secondAttribute="trailing" constant="16" id="vEU-x8-da2"/>
@@ -186,6 +188,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Z86-HX-JJQ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="zzP-e2-ZvO"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KOk-2l-5mm" id="g2Z-bd-Sbg"/>
+                                </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zf-Uj-fUK" userLabel="Back">
                                 <rect key="frame" x="8" y="55" width="34.666666666666664" height="48"/>
