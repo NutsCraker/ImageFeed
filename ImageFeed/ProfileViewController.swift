@@ -91,7 +91,7 @@ extension ProfileViewController {
 
     }
     func addLogoutButton() {
-        let buttonImage = UIImage(named: "button_back")
+        let buttonImage = UIImage(named: "logout_button")
         
         let logoutButtonView = UIButton.systemButton(with: buttonImage!,
                                                target: nil,
