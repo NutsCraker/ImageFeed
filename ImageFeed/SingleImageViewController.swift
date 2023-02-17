@@ -19,14 +19,9 @@ final class SingleImageViewController: UIViewController {
 
     @IBOutlet private var imageView: UIImageView!
     
-
-    
-    
     @IBAction func DidTapSharingButton(_ sender: Any)  {
-        
         let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
-    
     }
     @IBAction func DidTapBackButton(_ sender: UIButton) {dismiss(animated: true,completion: nil)
     }
@@ -50,13 +45,16 @@ final class SingleImageViewController: UIViewController {
         let imageSize = image.size
         let hScale = visibleRectSize.width / imageSize.width
         let vScale = visibleRectSize.height / imageSize.height
-        let scale = min(maxZoomScale, max(minZoomScale, max(hScale, vScale)))
+        let scale = max(maxZoomScale, max(minZoomScale, max(hScale, vScale)))
+        //print (scale)
+        scrollView.maximumZoomScale = scale > scrollView.maximumZoomScale ? scale : scrollView.maximumZoomScale // для растягивания на весь экран
         scrollView.setZoomScale(scale, animated: false)
         scrollView.layoutIfNeeded()
         let newContentSize = scrollView.contentSize
         let x = (newContentSize.width - visibleRectSize.width) / 2
         let y = (newContentSize.height - visibleRectSize.height) / 2
         scrollView.setContentOffset(CGPoint(x: x, y: y), animated: false)
+
     }
 }
 extension SingleImageViewController: UIScrollViewDelegate {
