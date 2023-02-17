@@ -21,15 +21,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <color key="backgroundColor" name="YPBlack"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="316" id="25u-6U-QSg" customClass="ImagesListCell" customModule="ImageFeed">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="316" id="25u-6U-QSg" customClass="ImagesListCell" customModule="ImageFeed">
                                         <rect key="frame" x="0.0" y="50" width="390" height="316"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="25u-6U-QSg" id="7kV-Iu-Xtl">
-                                            <rect key="frame" x="0.0" y="0.0" width="359.66666666666669" height="316"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="316"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-fV-5p4" userLabel="Cell Image">
-                                                    <rect key="frame" x="16" y="4" width="327.66666666666669" height="308"/>
+                                                    <rect key="frame" x="16" y="4" width="358" height="308"/>
                                                     <color key="backgroundColor" name="YPBackground"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -39,7 +39,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="likeButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da8-JB-ha6" userLabel="likeButton">
-                                                    <rect key="frame" x="285" y="4" width="58.666666666666686" height="40"/>
+                                                    <rect key="frame" x="315.33333333333331" y="4" width="58.666666666666686" height="40"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="liked" title=" "/>
                                                 </button>
@@ -52,13 +52,15 @@
                                             </subviews>
                                             <color key="backgroundColor" name="YPBackground"/>
                                             <constraints>
-                                                <constraint firstItem="bQQ-fV-5p4" firstAttribute="leading" secondItem="7kV-Iu-Xtl" secondAttribute="leading" constant="16" id="09E-OE-u1e"/>
                                                 <constraint firstItem="bQQ-fV-5p4" firstAttribute="bottom" secondItem="tzD-Ta-Duz" secondAttribute="bottom" constant="8" id="3iO-Ay-3Fp"/>
                                                 <constraint firstAttribute="bottom" secondItem="bQQ-fV-5p4" secondAttribute="bottom" constant="4" id="49H-26-Xl7"/>
                                                 <constraint firstItem="bQQ-fV-5p4" firstAttribute="top" secondItem="7kV-Iu-Xtl" secondAttribute="top" constant="4" id="5iL-dH-5h6"/>
+                                                <constraint firstItem="bQQ-fV-5p4" firstAttribute="leading" secondItem="7kV-Iu-Xtl" secondAttribute="leading" constant="16" id="98P-zI-PTc"/>
+                                                <constraint firstAttribute="trailing" secondItem="bQQ-fV-5p4" secondAttribute="trailing" constant="16" id="CKI-zY-1mh"/>
+                                                <constraint firstItem="bQQ-fV-5p4" firstAttribute="top" secondItem="7kV-Iu-Xtl" secondAttribute="top" constant="4" id="D3F-Sh-bpc"/>
                                                 <constraint firstItem="bQQ-fV-5p4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tzD-Ta-Duz" secondAttribute="trailing" constant="8" id="FJk-z0-Vjg"/>
                                                 <constraint firstItem="tzD-Ta-Duz" firstAttribute="leading" secondItem="bQQ-fV-5p4" secondAttribute="leading" constant="8" id="Nvn-I5-Pct" userLabel="Date Label.leading = Cell Image.leading +8"/>
-                                                <constraint firstItem="bQQ-fV-5p4" firstAttribute="trailing" secondItem="da8-JB-ha6" secondAttribute="trailing" id="n1g-KD-IgI"/>
+                                                <constraint firstItem="da8-JB-ha6" firstAttribute="trailing" secondItem="bQQ-fV-5p4" secondAttribute="trailing" id="O19-pk-cTU"/>
                                                 <constraint firstItem="bQQ-fV-5p4" firstAttribute="top" secondItem="da8-JB-ha6" secondAttribute="top" id="pp3-0m-as1"/>
                                                 <constraint firstAttribute="trailing" secondItem="bQQ-fV-5p4" secondAttribute="trailing" constant="16" id="vEU-x8-da2"/>
                                             </constraints>
@@ -86,6 +88,7 @@
                             <constraint firstItem="bTJ-DF-s1L" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Kyy-LL-Hjv"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="tab_editoral_active" id="LEW-GX-8R3"/>
                     <navigationItem key="navigationItem" id="P2j-Ty-bBv"/>
                     <connections>
                         <outlet property="tableView" destination="bTJ-DF-s1L" id="C3n-vN-SO3"/>
@@ -94,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2224.6153846153848" y="-724.4075829383886"/>
+            <point key="canvasLocation" x="1245" y="-724"/>
         </scene>
         <!--ProfileView-->
         <scene sceneID="Ldx-Jm-oRq">
@@ -126,42 +129,13 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="bCh-AZ-BWD" kind="relationship" relationship="viewControllers" id="Gec-op-sOn"/>
-                        <segue destination="46n-CR-4xc" kind="relationship" relationship="viewControllers" id="6LJ-32-UnA"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="id4-ey-0LC"/>
+                        <segue destination="46n-CR-4xc" kind="relationship" relationship="viewControllers" id="gQk-vS-Qhu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHw-iE-RxE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69" y="-360"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gKx-0p-XPe">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bCh-AZ-BWD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_editoral_active" id="u8o-eE-MTh"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ffO-hu-S3y">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="YPBlack"/>
-                        <color key="tintColor" name="YPWhite"/>
-                        <color key="barTintColor" name="YPWhite"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" name="YPWhite"/>
-                        </textAttributes>
-                        <navigationBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" name="YPBlack"/>
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                        </navigationBarAppearance>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ic0-3h-Pgk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HVi-NI-4uW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1244.6153846153845" y="-723.69668246445497"/>
         </scene>
         <!--Single Image View Controller-->
         <scene sceneID="lLq-Ka-9Ns">
