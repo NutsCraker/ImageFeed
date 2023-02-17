@@ -11,13 +11,13 @@ final class SingleImageViewController: UIViewController {
     var image: UIImage! {
         didSet {
             guard isViewLoaded else { return }
-            imageView.image = image
+         //   rescaleAndCenterImageInScrollView(image: image)
             rescaleAndCenterImageInScrollView(image: image)
         }
     }
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollView: UIScrollView!
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView!
     
 
     
