@@ -45,13 +45,16 @@ extension ProfileViewController {
         guard let nameLabel = nameLabel else {
             return
         }
+        guard let profileImageView = profileImageView else {
+            return
+        }
         nameLabel.text = "Екатерина Новикова"
         nameLabel.font = .systemFont(ofSize: 23, weight: .bold)
         nameLabel.textColor = .white
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameLabel)
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: profileImageView!.bottomAnchor, constant: 8),
+            nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 8),
             nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
         ])
 
@@ -62,13 +65,16 @@ extension ProfileViewController {
         guard let loginNameLabel = loginNameLabel else {
             return
         }
+        guard let nameLabel = nameLabel else {
+            return
+        }
         loginNameLabel.text = "@ekaterina_nov"
         loginNameLabel.font = .systemFont(ofSize: 13, weight: .regular)
         loginNameLabel.textColor = .yPGray
         loginNameLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loginNameLabel)
         NSLayoutConstraint.activate([
-            loginNameLabel.topAnchor.constraint(equalTo: nameLabel!.bottomAnchor, constant: 8),
+            loginNameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
             loginNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
         ])
 
@@ -79,18 +85,25 @@ extension ProfileViewController {
         guard let descriptionLabel = descriptionLabel else {
             return
         }
+        guard let loginNameLabel = loginNameLabel else {
+            return
+        }
         descriptionLabel.text = "Hello, World!"
         descriptionLabel.font = .systemFont(ofSize: 13, weight: .regular)
         descriptionLabel.textColor = .white
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: loginNameLabel!.bottomAnchor, constant: 8),
+            descriptionLabel.topAnchor.constraint(equalTo: loginNameLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
         ])
 
     }
     func addLogoutButton() {
+        guard let profileImageView = profileImageView else {
+            return
+        }
+        
         let buttonImage = UIImage(named: "logout_button")
         
         let logoutButtonView = UIButton.systemButton(with: buttonImage!,
@@ -102,7 +115,7 @@ extension ProfileViewController {
         view.addSubview(logoutButtonView)
         NSLayoutConstraint.activate([
             logoutButtonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18),
-            logoutButtonView.centerYAnchor.constraint(equalTo: profileImageView!.centerYAnchor)
+            logoutButtonView.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor)
         ])
 
     }

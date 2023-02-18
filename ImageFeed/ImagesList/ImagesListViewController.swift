@@ -16,10 +16,11 @@ class ImagesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ShowSingleImageSegueIdentifier {
-            let viewController = segue.destination as! SingleImageViewController
+            let viewController = segue.destination as! SingleImageViewController         
             let indexPath = sender as! IndexPath
             let image = UIImage(named: fotoName[indexPath.row])
             viewController.image = image
@@ -75,6 +76,7 @@ extension ImagesListViewController {
               let image = UIImage(named: imageName) else {
             return
         }
+        cell.selectionStyle = .none
         cell.imageCell.image = image
         cell.dateLabel.text = dateFormatter.string(from: Date())
         let isLiked = indexPath.row % 2 == 0

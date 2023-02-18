@@ -11,16 +11,19 @@ final class SingleImageViewController: UIViewController {
     var image: UIImage! {
         didSet {
             guard isViewLoaded else { return }
-         //   rescaleAndCenterImageInScrollView(image: image)
             rescaleAndCenterImageInScrollView(image: image)
         }
     }
     @IBOutlet private weak var scrollView: UIScrollView!
-
+    
     @IBOutlet private var imageView: UIImageView!
     
     @IBAction func DidTapSharingButton(_ sender: Any)  {
-        let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        guard let image = image else {
+            return
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
     }
     @IBAction func DidTapBackButton(_ sender: UIButton) {dismiss(animated: true,completion: nil)
@@ -35,7 +38,7 @@ final class SingleImageViewController: UIViewController {
         rescaleAndCenterImageInScrollView(image: image)
     }
     
-
+    
     
     private func rescaleAndCenterImageInScrollView(image: UIImage) {
         let minZoomScale = scrollView.minimumZoomScale
@@ -46,15 +49,14 @@ final class SingleImageViewController: UIViewController {
         let hScale = visibleRectSize.width / imageSize.width
         let vScale = visibleRectSize.height / imageSize.height
         let scale = max(maxZoomScale, max(minZoomScale, max(hScale, vScale)))
-        //print (scale)
-        scrollView.maximumZoomScale = scale > scrollView.maximumZoomScale ? scale : scrollView.maximumZoomScale // для растягивания на весь экран
+        scrollView.maximumZoomScale = scale > scrollView.maximumZoomScale ? scale : scrollView.maximumZoomScale
         scrollView.setZoomScale(scale, animated: false)
         scrollView.layoutIfNeeded()
         let newContentSize = scrollView.contentSize
         let x = (newContentSize.width - visibleRectSize.width) / 2
         let y = (newContentSize.height - visibleRectSize.height) / 2
         scrollView.setContentOffset(CGPoint(x: x, y: y), animated: false)
-
+        
     }
 }
 extension SingleImageViewController: UIScrollViewDelegate {
