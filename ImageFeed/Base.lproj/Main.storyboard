@@ -107,9 +107,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="EkP-KG-BmC"/>
-                        <color key="backgroundColor" name="YPBackground"/>
+                        <color key="backgroundColor" name="YPBlack"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_profile_active" id="ldI-xB-yfo"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_editoral_active" id="ldI-xB-yfo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zyj-9l-CLg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,7 +219,6 @@
         <image name="liked" width="30" height="26"/>
         <image name="sharing" width="51" height="50"/>
         <image name="tab_editoral_active" width="13.333333015441895" height="14.666666984558105"/>
-        <image name="tab_profile_active" width="16" height="16"/>
         <namedColor name="YPBackground">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
