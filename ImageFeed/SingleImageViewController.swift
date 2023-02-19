@@ -1,7 +1,7 @@
 //
 //  SingleImageViewController.swift
 //  ImageFeed
-//
+//  For SSH test
 //  Created by Alexander Farizanov on 07.02.2023.
 //
 
