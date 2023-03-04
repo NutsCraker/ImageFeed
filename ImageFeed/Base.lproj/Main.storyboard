@@ -80,13 +80,13 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="6QC-a7-g3M"/>
                         <color key="backgroundColor" name="YPBlack"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="bTJ-DF-s1L" secondAttribute="bottom" id="02x-E7-2aS"/>
                             <constraint firstItem="bTJ-DF-s1L" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7qO-ka-1dq"/>
-                            <constraint firstItem="bTJ-DF-s1L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KLQ-Gl-Qwo"/>
-                            <constraint firstItem="bTJ-DF-s1L" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Kyy-LL-Hjv"/>
+                            <constraint firstItem="bTJ-DF-s1L" firstAttribute="leading" secondItem="6QC-a7-g3M" secondAttribute="leading" id="KLQ-Gl-Qwo"/>
+                            <constraint firstItem="bTJ-DF-s1L" firstAttribute="trailing" secondItem="6QC-a7-g3M" secondAttribute="trailing" id="Kyy-LL-Hjv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tab_editoral_active" id="LEW-GX-8R3"/>
@@ -107,7 +107,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ogg-6i-oIS" customClass="ProfileViewController">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="EkP-KG-BmC"/>
+                        <viewLayoutGuide key="safeArea" id="qAv-td-8G4"/>
                         <color key="backgroundColor" name="YPBackground"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tab_profile_active" id="ldI-xB-yfo"/>
@@ -119,7 +119,7 @@
         <!--TabBarViewController-->
         <scene sceneID="u5n-BD-H4J">
             <objects>
-                <tabBarController title="TabBarViewController" id="Yl4-PS-d18" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" title="TabBarViewController" id="Yl4-PS-d18" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ELc-ka-SOp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -189,18 +189,18 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="ZMb-4K-UFX"/>
+                        <viewLayoutGuide key="safeArea" id="DFG-K2-0Pz"/>
                         <color key="backgroundColor" red="0.1019607843" green="0.1058823529" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="5Zf-Uj-fUK" firstAttribute="leading" secondItem="ZMb-4K-UFX" secondAttribute="leading" constant="8" id="Bo4-yF-Af1"/>
+                            <constraint firstItem="5Zf-Uj-fUK" firstAttribute="leading" secondItem="DFG-K2-0Pz" secondAttribute="leading" constant="8" id="Bo4-yF-Af1"/>
                             <constraint firstItem="o8K-0P-iC2" firstAttribute="bottom" secondItem="Jzx-Sk-bWH" secondAttribute="bottom" id="HnL-ia-sdT"/>
-                            <constraint firstItem="o8K-0P-iC2" firstAttribute="leading" secondItem="ZMb-4K-UFX" secondAttribute="leading" id="IxW-5q-xod"/>
+                            <constraint firstItem="o8K-0P-iC2" firstAttribute="leading" secondItem="DFG-K2-0Pz" secondAttribute="leading" id="IxW-5q-xod"/>
                             <constraint firstItem="o8K-0P-iC2" firstAttribute="top" secondItem="Jzx-Sk-bWH" secondAttribute="top" id="MsJ-pe-eLw"/>
-                            <constraint firstItem="o8K-0P-iC2" firstAttribute="trailing" secondItem="ZMb-4K-UFX" secondAttribute="trailing" id="OMy-MO-ROx"/>
-                            <constraint firstItem="5Zf-Uj-fUK" firstAttribute="top" secondItem="ZMb-4K-UFX" secondAttribute="top" constant="8" id="dLP-5x-CNN"/>
-                            <constraint firstItem="ZMb-4K-UFX" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Zf-Uj-fUK" secondAttribute="trailing" symbolic="YES" id="o7U-L0-aXI"/>
-                            <constraint firstItem="DSg-eC-Bqx" firstAttribute="centerX" secondItem="Jzx-Sk-bWH" secondAttribute="centerX" id="q5O-9t-tid"/>
-                            <constraint firstItem="ZMb-4K-UFX" firstAttribute="bottom" secondItem="DSg-eC-Bqx" secondAttribute="bottom" constant="38" id="wAq-pb-h1c"/>
+                            <constraint firstItem="o8K-0P-iC2" firstAttribute="trailing" secondItem="DFG-K2-0Pz" secondAttribute="trailing" id="OMy-MO-ROx"/>
+                            <constraint firstItem="5Zf-Uj-fUK" firstAttribute="top" secondItem="DFG-K2-0Pz" secondAttribute="top" constant="8" id="dLP-5x-CNN"/>
+                            <constraint firstItem="DFG-K2-0Pz" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Zf-Uj-fUK" secondAttribute="trailing" symbolic="YES" id="o7U-L0-aXI"/>
+                            <constraint firstItem="DSg-eC-Bqx" firstAttribute="centerX" secondItem="DFG-K2-0Pz" secondAttribute="centerX" id="q5O-9t-tid"/>
+                            <constraint firstItem="DFG-K2-0Pz" firstAttribute="bottom" secondItem="DSg-eC-Bqx" secondAttribute="bottom" constant="38" id="wAq-pb-h1c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P1l-Ea-MEs"/>
@@ -217,15 +217,15 @@
         <scene sceneID="e9T-XO-2Qd">
             <objects>
                 <viewController title="AuthViewController" id="7Z9-01-eRt" customClass="AuthViewController" customModule="ImageFeed" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aIM-xZ-w7B">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                    <view key="view" contentMode="scaleAspectFit" id="aIM-xZ-w7B">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ylT-Z8-fZY"/>
+                        <viewLayoutGuide key="safeArea" id="CFg-5e-byo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="FAM-TS-C3e"/>
                     <connections>
-                        <segue destination="hMb-YC-V6v" kind="presentation" id="Ov3-vs-c3j"/>
+                        <segue destination="hMb-YC-V6v" kind="presentation" identifier="ShowWebView" id="Ov3-vs-c3j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abU-c1-ink" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -239,7 +239,7 @@
                     <view key="view" contentMode="scaleToFill" id="50w-Cc-Xya">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="bgW-s1-20P"/>
+                        <viewLayoutGuide key="safeArea" id="N4b-JC-dOa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ftd-9w-ueo"/>
@@ -268,9 +268,9 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kd-hj-v9m" userLabel="Back">
-                                <rect key="frame" x="16" y="62" width="63" height="22"/>
+                                <rect key="frame" x="16" y="62" width="60" height="22"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="nav_back_button"/>
+                                <state key="normal" title="Button" image="button_back"/>
                                 <connections>
                                     <action selector="didTapBack:" destination="hMb-YC-V6v" eventType="touchDown" id="Jy7-UZ-uHh"/>
                                 </connections>
@@ -280,21 +280,23 @@
                                 <color key="progressTintColor" name="YPBlack"/>
                             </progressView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="JaC-wA-sYf"/>
+                        <viewLayoutGuide key="safeArea" id="t6X-4f-nJX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ynd-6A-kQL" firstAttribute="top" secondItem="3kd-hj-v9m" secondAttribute="bottom" id="0c6-5a-WEy"/>
                             <constraint firstAttribute="bottom" secondItem="5gQ-0X-rUD" secondAttribute="bottom" id="2hx-Z4-ljR"/>
-                            <constraint firstAttribute="trailing" secondItem="Ynd-6A-kQL" secondAttribute="trailing" id="581-fq-JiU"/>
-                            <constraint firstItem="5gQ-0X-rUD" firstAttribute="leading" secondItem="P4d-uZ-d4i" secondAttribute="leading" id="8v2-EK-f9V"/>
-                            <constraint firstItem="3kd-hj-v9m" firstAttribute="leading" secondItem="JaC-wA-sYf" secondAttribute="leading" constant="16" id="DjJ-M2-MDw"/>
-                            <constraint firstAttribute="trailing" secondItem="5gQ-0X-rUD" secondAttribute="trailing" id="Sjm-ec-ksl"/>
-                            <constraint firstItem="5gQ-0X-rUD" firstAttribute="top" secondItem="P4d-uZ-d4i" secondAttribute="top" id="ohW-0a-CKN"/>
-                            <constraint firstItem="3kd-hj-v9m" firstAttribute="top" secondItem="JaC-wA-sYf" secondAttribute="top" constant="15" id="pZA-hw-YNx"/>
-                            <constraint firstItem="Ynd-6A-kQL" firstAttribute="leading" secondItem="P4d-uZ-d4i" secondAttribute="leading" id="yfV-Gg-Pnv"/>
+                            <constraint firstItem="t6X-4f-nJX" firstAttribute="trailing" secondItem="Ynd-6A-kQL" secondAttribute="trailing" id="581-fq-JiU"/>
+                            <constraint firstItem="5gQ-0X-rUD" firstAttribute="top" secondItem="P4d-uZ-d4i" secondAttribute="top" id="6PT-Ad-RIr"/>
+                            <constraint firstItem="5gQ-0X-rUD" firstAttribute="leading" secondItem="t6X-4f-nJX" secondAttribute="leading" id="8v2-EK-f9V"/>
+                            <constraint firstItem="3kd-hj-v9m" firstAttribute="leading" secondItem="t6X-4f-nJX" secondAttribute="leading" constant="16" id="DjJ-M2-MDw"/>
+                            <constraint firstItem="t6X-4f-nJX" firstAttribute="trailing" secondItem="5gQ-0X-rUD" secondAttribute="trailing" id="Sjm-ec-ksl"/>
+                            <constraint firstItem="3kd-hj-v9m" firstAttribute="top" secondItem="t6X-4f-nJX" secondAttribute="top" constant="15" id="pZA-hw-YNx"/>
+                            <constraint firstItem="Ynd-6A-kQL" firstAttribute="leading" secondItem="t6X-4f-nJX" secondAttribute="leading" id="yfV-Gg-Pnv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2Os-hk-lhN"/>
+                    <navigationItem key="navigationItem" id="2Os-hk-lhN">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="9z0-I9-p1F"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="progressView" destination="Ynd-6A-kQL" id="HR2-ho-x9S"/>
                         <outlet property="webView" destination="5gQ-0X-rUD" id="sIf-Uw-mjz"/>
@@ -307,14 +309,17 @@
         <!--Navigation Controller-->
         <scene sceneID="F7Q-sj-Dp1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ehs-K0-rKr" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="currentContext" id="Ehs-K0-rKr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="AOm-S2-h1g"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ASe-No-e8v">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h3b-fe-9VI">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="7Z9-01-eRt" kind="relationship" relationship="rootViewController" id="69t-Or-YFF"/>
                     </connections>
@@ -329,7 +334,6 @@
         <image name="14" width="200" height="133"/>
         <image name="button_back" width="6" height="10.666666984558105"/>
         <image name="liked" width="30" height="26"/>
-        <image name="nav_back_button" width="9" height="16"/>
         <image name="sharing" width="51" height="50"/>
         <image name="tab_editoral_active" width="13.333333015441895" height="14.666666984558105"/>
         <image name="tab_profile_active" width="16" height="16"/>

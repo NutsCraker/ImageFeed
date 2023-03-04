@@ -37,7 +37,6 @@ class AuthViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         button.backgroundColor = .ypWhite
-        
         button.tintColor = .ypWhite
         button.layer.cornerRadius = 16
         button.setTitleColor(.ypBlack, for: .normal)
