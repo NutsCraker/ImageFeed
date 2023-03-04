@@ -9,15 +9,17 @@ import UIKit
 import WebKit
 
 final class WebViewViewController: UIViewController {
-    
-    @IBOutlet private var webView: WKWebView!
-    @IBOutlet private var progressView: UIProgressView!
+        
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var webView: WKWebView!
     
     weak var delegate: WebViewViewControllerDelegate?
     
-    @IBAction private func didTapeBackButton(_ sender: Any?) {
+    @IBAction func didTapBack(_ sender: Any)
+    {
         delegate?.webViewViewControllerDidCancel(self)
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
