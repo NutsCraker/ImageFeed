@@ -244,7 +244,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ftd-9w-ueo"/>
                     <connections>
-                        <segue destination="Ehs-K0-rKr" kind="presentation" id="1de-Qw-dwu"/>
+                        <segue destination="Ehs-K0-rKr" kind="presentation" identifier="ShowAuthenticationScreenSegueIdentifier" id="1de-Qw-dwu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3p-Oh-85i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
