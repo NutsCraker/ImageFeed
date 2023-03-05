@@ -254,13 +254,13 @@
         <!--WebViewViewController-->
         <scene sceneID="X3b-Eb-ZFc">
             <objects>
-                <viewController title="WebViewViewController" id="hMb-YC-V6v" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="WebViewViewController" modalPresentationStyle="overFullScreen" id="hMb-YC-V6v" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P4d-uZ-d4i">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-0X-rUD">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <color key="backgroundColor" name="YPWhite"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -268,9 +268,11 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kd-hj-v9m" userLabel="Back">
-                                <rect key="frame" x="16" y="62" width="60" height="22"/>
+                                <rect key="frame" x="16" y="62" width="9" height="22"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="button_back"/>
+                                <state key="normal" image="back">
+                                    <color key="titleColor" name="YPBlack"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapBack:" destination="hMb-YC-V6v" eventType="touchDown" id="Jy7-UZ-uHh"/>
                                 </connections>
@@ -295,7 +297,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2Os-hk-lhN">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="9z0-I9-p1F"/>
+                        <barButtonItem key="backBarButtonItem" image="back" id="9z0-I9-p1F"/>
                     </navigationItem>
                     <connections>
                         <outlet property="progressView" destination="Ynd-6A-kQL" id="HR2-ho-x9S"/>
@@ -332,7 +334,8 @@
     <resources>
         <image name="0" width="200" height="132"/>
         <image name="14" width="200" height="133"/>
-        <image name="button_back" width="6" height="10.666666984558105"/>
+        <image name="back" width="9" height="16"/>
+        <image name="button_back" width="9" height="16"/>
         <image name="liked" width="30" height="26"/>
         <image name="sharing" width="51" height="50"/>
         <image name="tab_editoral_active" width="13.333333015441895" height="14.666666984558105"/>
