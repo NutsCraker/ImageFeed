@@ -32,8 +32,8 @@ extension SplashViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showAuthenticationScreenSegueIdentifier {
             guard let navigationController = segue.destination as? UINavigationController,
-                  let viewController = navigationController.viewControllers[0] as? AuthViewController else {
-                fatalError("Failed to prepare for \(showAuthenticationScreenSegueIdentifier)")
+                  let viewController = navigationController.viewControllers[0] as? AuthViewController else {  assertionFailure("Failed to prepare for \(showAuthenticationScreenSegueIdentifier)")
+                return
             }
             viewController.delegate = self
         } else {
