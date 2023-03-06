@@ -6,11 +6,10 @@
 //
 
 import UIKit
-class AuthViewController: UIViewController {
-    
+final class AuthViewController: UIViewController {
     
     weak var delegate: AuthViewControllerDelegate?
-    private let auth_screen_logo = UIImageView()
+    private let authScreenLogo = UIImageView()
     private let button = UIButton()
     private let showWebView = "ShowWebView"
     
@@ -30,10 +29,10 @@ class AuthViewController: UIViewController {
     
     private func makeUI() {
         view.backgroundColor = .ypBlack
-        auth_screen_logo.image = UIImage(named: "AuthView")
-        view.addSubview(auth_screen_logo)
+        authScreenLogo.image = UIImage(named: "AuthView")
+        view.addSubview(authScreenLogo)
         view.addSubview(button)
-        auth_screen_logo.translatesAutoresizingMaskIntoConstraints = false
+        authScreenLogo.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
         
         button.backgroundColor = .ypWhite
@@ -45,8 +44,8 @@ class AuthViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonEntrance), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            auth_screen_logo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            auth_screen_logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            authScreenLogo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            authScreenLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.widthAnchor.constraint(equalToConstant: 343),
             button.heightAnchor.constraint(equalToConstant: 48),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -90),
@@ -55,7 +54,7 @@ class AuthViewController: UIViewController {
         ])
     }
     
-    @objc func buttonEntrance() {
+    @objc private func buttonEntrance() {
         performSegue(withIdentifier: showWebView, sender: nil)
     }
 }
