@@ -75,6 +75,7 @@ extension ImagesListViewController {
               let image = UIImage(named: imageName) else {
             return
         }
+        cell.isSelected = false
         cell.imageCell.image = image
         cell.dateLabel.text = dateFormatter.string(from: Date())
         let isLiked = indexPath.row % 2 == 0
