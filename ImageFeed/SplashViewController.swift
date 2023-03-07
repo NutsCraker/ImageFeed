@@ -10,7 +10,6 @@ final class SplashViewController: UIViewController {
     
     private let showAuthenticationScreenSegueIdentifier = "ShowAuthenticationScreenSegueIdentifier"
     private let oAuth2Service = OAuth2Service()
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if OAuth2TokenStorage().token != nil {
