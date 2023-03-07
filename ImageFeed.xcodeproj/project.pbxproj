@@ -63,6 +63,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8819A8F529B798AF0017F2DF /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				881B885229B621E5002C81B4 /* AlertPresenterDelegate.swift */,
+				881B885029B61F64002C81B4 /* AlertModel.swift */,
+				881B884E29B61EE4002C81B4 /* AlertPresenter.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
 		881B884329B30B75002C81B4 /* AuthFunctions */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +105,6 @@
 		E03CE36B2979AB48005EC927 = {
 			isa = PBXGroup;
 			children = (
-				881B885229B621E5002C81B4 /* AlertPresenterDelegate.swift */,
-				881B885029B61F64002C81B4 /* AlertModel.swift */,
-				881B884E29B61EE4002C81B4 /* AlertPresenter.swift */,
 				E03CE3762979AB48005EC927 /* ImageFeed */,
 				E03CE3752979AB48005EC927 /* Products */,
 			);
@@ -114,6 +121,7 @@
 		E03CE3762979AB48005EC927 /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				8819A8F529B798AF0017F2DF /* Alerts */,
 				881B884329B30B75002C81B4 /* AuthFunctions */,
 				881D0F4229A0CF4900714E7E /* Profile */,
 				8899CC002992A064000A5C8A /* SingleImageViewController.swift */,

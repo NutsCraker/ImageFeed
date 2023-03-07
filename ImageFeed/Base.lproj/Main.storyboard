@@ -166,7 +166,7 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zf-Uj-fUK" userLabel="Back">
-                                <rect key="frame" x="8" y="55" width="34.666666666666664" height="48"/>
+                                <rect key="frame" x="8" y="55" width="37.666666666666664" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="oX3-bi-6Zl"/>
                                 </constraints>
@@ -279,7 +279,8 @@
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ynd-6A-kQL">
                                 <rect key="frame" x="0.0" y="84" width="390" height="4"/>
-                                <color key="progressTintColor" name="YPBlack"/>
+                                <color key="progressTintColor" name="YPWhite"/>
+                                <color key="trackTintColor" name="YPBlack"/>
                             </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t6X-4f-nJX"/>
