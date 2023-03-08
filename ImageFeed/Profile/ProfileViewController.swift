@@ -64,7 +64,7 @@ extension ProfileViewController {
         }
         loginNameLabel.text = "@ekaterina_nov"
         loginNameLabel.font = .systemFont(ofSize: 13, weight: .regular)
-        loginNameLabel.textColor = .yPGray
+        loginNameLabel.textColor = .ypGray
         loginNameLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loginNameLabel)
         NSLayoutConstraint.activate([
@@ -96,7 +96,7 @@ extension ProfileViewController {
         let logoutButtonView = UIButton.systemButton(with: buttonImage!,
                                                target: nil,
                                                action: nil)
-        logoutButtonView.tintColor = .yPRed
+        logoutButtonView.tintColor = .ypRed
         logoutButtonView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(logoutButtonView)

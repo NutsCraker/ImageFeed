@@ -10,6 +10,8 @@ final class SplashViewController: UIViewController {
     
     private let showAuthenticationScreenSegueIdentifier = "ShowAuthenticationScreenSegueIdentifier"
     private let oAuth2Service = OAuth2Service()
+    private var alertPresenter = AlertPresenter()
+    private var alertMessage = AlertModel.self
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if OAuth2TokenStorage().token != nil {
@@ -51,10 +53,16 @@ extension SplashViewController: AuthViewControllerDelegate {
                     self.switchToTabBarController()
                     self.dismiss(animated: true)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    let alertMessage = AlertModel(title: "Что-то пошли нитак!",
+                                                  message: error.localizedDescription,
+                                                  buttonText: "Попробовать еще раз",
+                                                  completion: { [weak self] _ in
+                        guard let self = self else {
+                            return }
+                        self.viewDidAppear(true)
+                    })
+                    self.alertPresenter.show(result: alertMessage)
                 }
             }
         })
-        }
-    }
-
+    }}

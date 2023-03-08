@@ -40,7 +40,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="likeButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da8-JB-ha6" userLabel="likeButton">
-                                                    <rect key="frame" x="315.33333333333331" y="4" width="58.666666666666686" height="40"/>
+                                                    <rect key="frame" x="330.33333333333331" y="4" width="43.666666666666686" height="34.333333333333336"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="liked" title=" "/>
                                                 </button>
@@ -337,10 +337,10 @@
         <image name="14" width="200" height="133"/>
         <image name="back" width="9" height="16"/>
         <image name="button_back" width="9" height="16"/>
-        <image name="liked" width="30" height="26"/>
-        <image name="sharing" width="51" height="50"/>
-        <image name="tab_editoral_active" width="13.333333015441895" height="14.666666984558105"/>
-        <image name="tab_profile_active" width="16" height="16"/>
+        <image name="liked" width="15" height="13"/>
+        <image name="sharing" width="25.5" height="25"/>
+        <image name="tab_editoral_active" width="20" height="22"/>
+        <image name="tab_profile_active" width="24" height="24"/>
         <namedColor name="YPBackground">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
