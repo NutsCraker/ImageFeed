@@ -124,14 +124,14 @@
 				8819A8F529B798AF0017F2DF /* Alerts */,
 				881B884329B30B75002C81B4 /* AuthFunctions */,
 				881D0F4229A0CF4900714E7E /* Profile */,
-				8899CC002992A064000A5C8A /* SingleImageViewController.swift */,
 				E0075C7A298184760075776E /* ImagesList */,
+				8899CC002992A064000A5C8A /* SingleImageViewController.swift */,
+				881B884C29B32E9B002C81B4 /* SplashViewController.swift */,
 				E03CE3772979AB48005EC927 /* AppDelegate.swift */,
 				E03CE3792979AB48005EC927 /* SceneDelegate.swift */,
 				E03CE37D2979AB48005EC927 /* Main.storyboard */,
 				E03CE3852979AB49005EC927 /* Info.plist */,
 				E0A7317729803D48006FCD31 /* Resources */,
-				881B884C29B32E9B002C81B4 /* SplashViewController.swift */,
 			);
 			path = ImageFeed;
 			sourceTree = "<group>";
