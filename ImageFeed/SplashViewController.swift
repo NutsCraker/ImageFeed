@@ -12,7 +12,6 @@ final class SplashViewController: UIViewController {
     private let oAuth2Service = OAuth2Service()
     private let oAuth2TokenStorage = OAuth2TokenStorage()
     private let profileService = ProfileService.shared
-    //private let profileImageService = ProfileImageService.shared
     private let authViewController = AuthViewController.shared
     
     override func viewDidLoad() {
@@ -63,7 +62,6 @@ extension SplashViewController: AuthViewControllerDelegate {
                     self.fetchProfile(token: token)
                 case .failure(let error):
                     UIBlockingProgressHUD.dismiss()
-                    print(error.localizedDescription)
                     self.showAllert()
                 }
             }
@@ -80,7 +78,6 @@ extension SplashViewController: AuthViewControllerDelegate {
                 self.fetchProfileImage(username: profile.userName)
                 self.switchToTabBarController()
             case .failure(let error):
-                print(error.localizedDescription)
                 UIBlockingProgressHUD.dismiss()
                 self.showAllert()
             }
@@ -93,7 +90,6 @@ extension SplashViewController: AuthViewControllerDelegate {
            case .success(_):
                 break
            case .failure(let error):
-               print(error.localizedDescription)
                 self.showAllert()
            }
         })
@@ -102,7 +98,7 @@ extension SplashViewController: AuthViewControllerDelegate {
 
 extension SplashViewController {
     func showAllert() {
-        let alert = UIAlertController(title: "Что-то пошло не так", message: "Ok", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Что-то пошло не так!", message: "У-п-с-с", preferredStyle: .alert)
         let action = UIAlertAction(title: "ОК", style: .default, handler: {_ in
             alert.dismiss(animated: true)
         })
