@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProfileService {
+final class ProfileService {
     
     private var task: URLSessionTask?
     private let urlSession = URLSession.shared
@@ -17,7 +17,7 @@ class ProfileService {
     private (set) var avatarURL: String?
     static let DidChangeNotification = Notification.Name("ProfileImageProviderDidChange")
     
-    private func convertToProfile(_ ProfileResult: ProfileResult) -> Profile {
+    private func convertProfile(_ ProfileResult: ProfileResult) -> Profile {
          return Profile(userName: ProfileResult.userName,
                         name: "\(ProfileResult.firstName) \(ProfileResult.lastName)",
                         loginName: "@\(ProfileResult.userName)",
@@ -26,16 +26,14 @@ class ProfileService {
     
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         assert(Thread.isMainThread)
-        if task != nil {
-            task?.cancel()
-        }
+
         var request = URLRequest.makeHTTPRequest (path: "me", httpMethod: "GET", baseURL: defaultBaseURL)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         let task = urlSession.objectTask(for: request, completion: {[weak self] (result: Result<ProfileResult, Error>) in
             guard let self = self else { return }
             switch result{
             case .success(let currentUser):
-                let newProfile = self.convertToProfile(currentUser)
+                let newProfile = self.convertProfile(currentUser)
                 self.profile = newProfile
                 completion(.success(newProfile))
             case .failure(let error):
@@ -48,9 +46,7 @@ class ProfileService {
     
     func fetchProfileImageURL(userName: String, _ completion: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
-       if task != nil {
-           task?.cancel()
-       }
+
         var request = URLRequest.makeHTTPRequest(path: "users/\(userName)", httpMethod: "GET")
         if let token = oAuth2TokenStorage.token {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -61,7 +57,6 @@ class ProfileService {
             case .success(let smallURL):
                 let newSmallURL = smallURL.profileImage.medium
                 self.avatarURL = newSmallURL
-                print(newSmallURL)
                 completion(.success(newSmallURL))
                 NotificationCenter.default.post(name: ProfileService.DidChangeNotification, object: self,
                     userInfo: ["URL": newSmallURL])

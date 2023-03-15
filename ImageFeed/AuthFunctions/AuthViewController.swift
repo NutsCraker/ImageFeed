@@ -20,14 +20,14 @@ final class AuthViewController: UIViewController {
      
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowWebView" {
-            let viewController = segue.destination as! WebViewViewController
-            viewController.delegate = self
-        } else {
-            super.prepare(for: segue, sender: sender)
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ShowWebView" {
+//            let viewController = segue.destination as! WebViewViewController
+//            viewController.delegate = self
+//        } else {
+//            super.prepare(for: segue, sender: sender)
+//        }
+//    }
   
     
     
@@ -59,7 +59,12 @@ final class AuthViewController: UIViewController {
     }
     
     @objc private func buttonEntrance() {
-        performSegue(withIdentifier: "ShowWebView", sender: nil)
+        if let viewController = UIStoryboard(name: "Main", bundle: .main)
+        .instantiateViewController(withIdentifier: "WebViewViewController") as? WebViewViewController {
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.delegate = self
+        present(viewController, animated: true)
+        }
     }
 }
 

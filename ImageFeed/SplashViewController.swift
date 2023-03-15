@@ -25,11 +25,11 @@ final class SplashViewController: UIViewController {
         guard let token = oAuth2TokenStorage.token else {
             authViewController.delegate = self
             authViewController.modalPresentationStyle = .fullScreen
-           return present(authViewController, animated: true)
+            return present(authViewController, animated: true)
         }
-        fetchProfile(token: token)
-       self.switchToTabBarController()
-   }
+            fetchProfile(token: token)
+            self.switchToTabBarController()
+        }
     
     private func switchToTabBarController() {
         guard let window = UIApplication.shared.windows.first else { fatalError("Invalid Configuration") }

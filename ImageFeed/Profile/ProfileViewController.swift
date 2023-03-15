@@ -44,7 +44,6 @@ final class ProfileViewController: UIViewController {
 
 
         profileName.text = profileService.profile?.name
-        print(profileName.text = profileService.profile?.name)
         profileName.font = UIFont.boldSystemFont(ofSize: 23)
         profileName.textColor = .ypWhite
         
