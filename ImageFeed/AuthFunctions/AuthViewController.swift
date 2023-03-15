@@ -6,37 +6,29 @@
 //
 
 import UIKit
-final class AuthViewController: UIViewController, AlertPresenterDelegate {
+final class AuthViewController: UIViewController {
     
     weak var delegate: AuthViewControllerDelegate?
-    private var alertPresenter: AlertPresenter?
+    static let shared = AuthViewController()
     private let authScreenLogo = UIImageView()
     private let button = UIButton()
-    private let showWebView = "ShowWebView"
+    //private let showWebView = "ShowWebView"
            
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
-        alertPresenter = AlertPresenter()
-        alertPresenter?.delegate = self
+     
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == showWebView {
+        if segue.identifier == "ShowWebView" {
             let viewController = segue.destination as! WebViewViewController
             viewController.delegate = self
         } else {
             super.prepare(for: segue, sender: sender)
         }
     }
-    func didPresentAlert(alert: UIAlertController?) {
-        guard let alert = alert else {
-            return
-        }
-        DispatchQueue.main.async {[weak self] in
-        self?.present(alert, animated: true, completion: nil)
-        }
-    }
+  
     
     
     private func makeUI() {
@@ -67,7 +59,7 @@ final class AuthViewController: UIViewController, AlertPresenterDelegate {
     }
     
     @objc private func buttonEntrance() {
-        performSegue(withIdentifier: showWebView, sender: nil)
+        performSegue(withIdentifier: "ShowWebView", sender: nil)
     }
 }
 
