@@ -14,11 +14,11 @@ final class ProfileViewController: UIViewController {
     private let profileService = ProfileService.shared
     private var profileServiceObserver: NSObjectProtocol?
     
-    let profilePhoto = UIImageView()
-    let profileName = UILabel()
-    let profileContact = UILabel()
-    let profileAbout = UILabel()
-    let logOutButton = UIButton.systemButton(with: UIImage(named: "logout_button")!,
+    private let profilePhoto = UIImageView()
+    private let profileName = UILabel()
+    private let profileContact = UILabel()
+    private let profileAbout = UILabel()
+    private let logOutButton = UIButton.systemButton(with: UIImage(named: "logout_button")!,
                                            target: nil,
                                            action: nil)
     
