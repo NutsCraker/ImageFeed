@@ -12,7 +12,13 @@ private enum NetworkError: Error {
     case urlRequestError(Error)
     case urlSessionError
 }
-
+//extension URLRequest {
+//    static func makeHTTPRequest(path: String, typeRequest: String, baseURL: URL = defaultBaseURL) -> URLRequest {
+//        var request = URLRequest(url: URL(string: path, relativeTo: baseURL)!)
+//        request.httpMethod = typeRequest
+//        return request
+//    }
+//}
 
 extension URLSession {
     func objectTask<T: Decodable>(for request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionTask {
