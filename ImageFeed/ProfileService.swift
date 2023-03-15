@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ProfileService {
+class ProfileService {
     
     private var task: URLSessionTask?
     private let urlSession = URLSession.shared

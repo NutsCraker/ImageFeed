@@ -18,7 +18,10 @@ final class ProfileViewController: UIViewController {
     let profileName = UILabel()
     let profileContact = UILabel()
     let profileAbout = UILabel()
-    let logOutButton = UIButton()
+    let logOutButton = UIButton.systemButton(with: UIImage(named: "logout_button")!,
+                                           target: nil,
+                                           action: nil)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,6 @@ final class ProfileViewController: UIViewController {
             self.updateAvatar()
         }
         updateAvatar()
-        logOutButton.im
     }
     
     private func makeUI() {

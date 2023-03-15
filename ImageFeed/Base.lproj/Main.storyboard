@@ -100,11 +100,11 @@
             </objects>
             <point key="canvasLocation" x="1245" y="-724"/>
         </scene>
-        <!--ProfileView-->
+        <!--ProfileViewController-->
         <scene sceneID="Ldx-Jm-oRq">
             <objects>
-                <viewController title="ProfileView" id="46n-CR-4xc" customClass="ProfileViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ogg-6i-oIS" customClass="ProfileViewController">
+                <viewController storyboardIdentifier="ProfileViewController" title="ProfileViewController" id="46n-CR-4xc" customClass="ProfileViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ogg-6i-oIS">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="qAv-td-8G4"/>
