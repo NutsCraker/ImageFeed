@@ -7,103 +7,76 @@
 
 
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
-    private var profileImageView: UIImageView?
-    private var nameLabel: UILabel?
-    private var loginNameLabel: UILabel?
-    private var descriptionLabel: UILabel?
+    
+    private let profileService = ProfileService.shared
+    private var profileServiceObserver: NSObjectProtocol?
+    
+    let profilePhoto = UIImageView()
+    let profileName = UILabel()
+    let profileContact = UILabel()
+    let profileAbout = UILabel()
+    let logOutButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addProfileImageView()
-        addNameLabel()
-        addLoginNameLabel()
-        addDescriptionLabel()
-        addLogoutButton()
+        makeUI()
+        
+        profileServiceObserver = NotificationCenter.default.addObserver(forName: ProfileService.DidChangeNotification, object: nil, queue: .main) {[weak self] _ in
+            guard let self = self else { return }
+            self.updateAvatar()
+        }
+        updateAvatar()
+        logOutButton.im
+    }
+    
+    private func makeUI() {
+        view.backgroundColor = .ypBlack
+
+       let allViewOnScreen = [profilePhoto, profileName, profileContact, profileAbout, logOutButton]
+        allViewOnScreen.forEach {view.addSubview($0)}
+        allViewOnScreen.forEach {$0.translatesAutoresizingMaskIntoConstraints = false}
+        
+
+
+        profileName.text = profileService.profile?.name
+        print(profileName.text = profileService.profile?.name)
+        profileName.font = UIFont.boldSystemFont(ofSize: 23)
+        profileName.textColor = .ypWhite
+        
+        profileContact.text = profileService.profile?.loginName
+        profileContact.font = UIFont.systemFont(ofSize: 13)
+        profileContact.textColor = .ypGray
+        
+        profileAbout.text = profileService.profile?.bio
+        profileAbout.font = UIFont.systemFont(ofSize: 13)
+        profileAbout.textColor = .ypWhite
+        
+        logOutButton.tintColor = .ypRed
+        
+        NSLayoutConstraint.activate([
+            profilePhoto.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            profilePhoto.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            profileName.leadingAnchor.constraint(equalTo: profilePhoto.leadingAnchor),
+            profileName.topAnchor.constraint(equalTo: profilePhoto.bottomAnchor, constant: 8),
+            profileAbout.leadingAnchor.constraint(equalTo: profilePhoto.leadingAnchor),
+            profileAbout.topAnchor.constraint(equalTo: profileName.bottomAnchor, constant: 8),
+            profileContact.leadingAnchor.constraint(equalTo: profilePhoto.leadingAnchor),
+            profileContact.topAnchor.constraint(equalTo: profileAbout.bottomAnchor, constant: 8),
+            logOutButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -26),
+            logOutButton.centerYAnchor.constraint(equalTo: profilePhoto.centerYAnchor)
+        ])
     }
 }
+
 extension ProfileViewController {
-    func addProfileImageView() {
-        let profileImage = UIImage(named: "ava")
-        profileImageView = UIImageView(image: profileImage)
-        guard let profileImageView = profileImageView else {
-            return
-        }
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(profileImageView)
-        NSLayoutConstraint.activate([
-            profileImageView.widthAnchor.constraint(equalToConstant: 70),
-            profileImageView.heightAnchor.constraint(equalToConstant: 70),
-            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
-        ])
-
-    }
-    
-    func addNameLabel() {
-        nameLabel = UILabel()
-        guard let nameLabel = nameLabel else {
-            return
-        }
-        nameLabel.text = "Екатерина Новикова"
-        nameLabel.font = .systemFont(ofSize: 23, weight: .bold)
-        nameLabel.textColor = .white
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(nameLabel)
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: profileImageView!.bottomAnchor, constant: 8),
-            nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
-        ])
-
-    }
-    
-    func addLoginNameLabel() {
-        loginNameLabel = UILabel()
-        guard let loginNameLabel = loginNameLabel else {
-            return
-        }
-        loginNameLabel.text = "@ekaterina_nov"
-        loginNameLabel.font = .systemFont(ofSize: 13, weight: .regular)
-        loginNameLabel.textColor = .ypGray
-        loginNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(loginNameLabel)
-        NSLayoutConstraint.activate([
-            loginNameLabel.topAnchor.constraint(equalTo: nameLabel!.bottomAnchor, constant: 8),
-            loginNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
-        ])
-
-    }
-    
-    func addDescriptionLabel() {
-        descriptionLabel = UILabel()
-        guard let descriptionLabel = descriptionLabel else {
-            return
-        }
-        descriptionLabel.text = "Hello, World!"
-        descriptionLabel.font = .systemFont(ofSize: 13, weight: .regular)
-        descriptionLabel.textColor = .white
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(descriptionLabel)
-        NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: loginNameLabel!.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
-        ])
-
-    }
-    func addLogoutButton() {
-        let buttonImage = UIImage(named: "logout_button")
-        
-        let logoutButtonView = UIButton.systemButton(with: buttonImage!,
-                                               target: nil,
-                                               action: nil)
-        logoutButtonView.tintColor = .ypRed
-        logoutButtonView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(logoutButtonView)
-        NSLayoutConstraint.activate([
-            logoutButtonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18),
-            logoutButtonView.centerYAnchor.constraint(equalTo: profileImageView!.centerYAnchor)
-        ])
-
+    private func updateAvatar() {
+        guard  let profileImageURL = ProfileService.shared.avatarURL,
+               let url = URL(string: profileImageURL)  else { return }
+        let processor = RoundCornerImageProcessor(cornerRadius: 61)
+        profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder.jpeg"), options: [.processor(processor)])
+        profilePhoto.kf.indicatorType = .activity
     }
 }
