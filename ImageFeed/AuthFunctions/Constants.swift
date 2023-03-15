@@ -11,5 +11,11 @@ import Foundation
     let secretKey = "ow_XAEbn8n1YOZE2rwp0fIGvaUxDyGf6SMW4mC-ovZ0"
     let redirectURI = "urn:ietf:wg:oauth:2.0:oob"
     let accessScope = "public+read_user+write_likes+write_user"
-    let defaultBaseURL = URL(string: "http://api.unsplash.com/")!
+ //   let defaultBaseURL = URL(string: "http://api.unsplash.com/")!
 
+var defaultBaseURL: URL {
+    guard let url = URL(string: "https://api.unsplash.com/") else {
+        preconditionFailure("Unable to construct DefaultBaseURL")
+    }
+    return url
+}

@@ -20,6 +20,8 @@
 		8838F2D429B88E5F006B104D /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 8838F2D329B88E5F006B104D /* ProgressHUD */; };
 		8838F2D629B89720006B104D /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8838F2D529B89720006B104D /* UIBlockingProgressHUD.swift */; };
 		88653C3229BC6E6700EDE2DB /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 88653C3129BC6E6700EDE2DB /* SwiftKeychainWrapper */; };
+		88653C3529C18F7A00EDE2DB /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88653C3429C18F7A00EDE2DB /* NetworkClient.swift */; };
+		88653C3829C1931200EDE2DB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 88653C3729C1931200EDE2DB /* Kingfisher */; };
 		8899CC012992A064000A5C8A /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899CC002992A064000A5C8A /* SingleImageViewController.swift */; };
 		E0075C79298182050075776E /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0075C78298182050075776E /* ImagesListCell.swift */; };
 		E03CE3782979AB48005EC927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CE3772979AB48005EC927 /* AppDelegate.swift */; };
@@ -43,6 +45,7 @@
 		881B885229B621E5002C81B4 /* AlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterDelegate.swift; sourceTree = "<group>"; };
 		881D0F4029A0CF3700714E7E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8838F2D529B89720006B104D /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
+		88653C3429C18F7A00EDE2DB /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		8899CC002992A064000A5C8A /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		E0075C78298182050075776E /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		E03CE3742979AB48005EC927 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88653C3829C1931200EDE2DB /* Kingfisher in Frameworks */,
 				88653C3229BC6E6700EDE2DB /* SwiftKeychainWrapper in Frameworks */,
 				8838F2D429B88E5F006B104D /* ProgressHUD in Frameworks */,
 			);
@@ -99,6 +103,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		88653C3329C18F5200EDE2DB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				88653C3429C18F7A00EDE2DB /* NetworkClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		E0075C7A298184760075776E /* ImagesList */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +139,7 @@
 		E03CE3762979AB48005EC927 /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				88653C3329C18F5200EDE2DB /* Network */,
 				8819A8F529B798AF0017F2DF /* Alerts */,
 				881B884329B30B75002C81B4 /* AuthFunctions */,
 				881D0F4229A0CF4900714E7E /* Profile */,
@@ -172,6 +185,7 @@
 			packageProductDependencies = (
 				8838F2D329B88E5F006B104D /* ProgressHUD */,
 				88653C3129BC6E6700EDE2DB /* SwiftKeychainWrapper */,
+				88653C3729C1931200EDE2DB /* Kingfisher */,
 			);
 			productName = ImageFeed;
 			productReference = E03CE3742979AB48005EC927 /* ImageFeed.app */;
@@ -204,6 +218,7 @@
 			packageReferences = (
 				8838F2D229B88E5F006B104D /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 				88653C3029BC6E6700EDE2DB /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				88653C3629C1931200EDE2DB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E03CE3752979AB48005EC927 /* Products */;
 			projectDirPath = "";
@@ -237,6 +252,7 @@
 				881B885329B621E5002C81B4 /* AlertPresenterDelegate.swift in Sources */,
 				E03CE37C2979AB48005EC927 /* ImagesListViewController.swift in Sources */,
 				E05386EA2988290C009C364E /* Array+Extensions.swift in Sources */,
+				88653C3529C18F7A00EDE2DB /* NetworkClient.swift in Sources */,
 				E0075C79298182050075776E /* ImagesListCell.swift in Sources */,
 				881B884B29B32DF5002C81B4 /* AuthViewController.swift in Sources */,
 				881B884929B30D0C002C81B4 /* OAuth2Service.swift in Sources */,
@@ -494,6 +510,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		88653C3629C1931200EDE2DB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -506,6 +530,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88653C3029BC6E6700EDE2DB /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
+		};
+		88653C3729C1931200EDE2DB /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88653C3629C1931200EDE2DB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
