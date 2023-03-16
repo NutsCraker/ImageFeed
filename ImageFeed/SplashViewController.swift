@@ -90,7 +90,7 @@ extension SplashViewController: AuthViewControllerDelegate {
         profileService.fetchProfileImageURL(userName: username, {[weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(_):
+            case .success:
                 break
             case .failure:
                 self.showAllert()
