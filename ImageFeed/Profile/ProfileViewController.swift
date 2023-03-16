@@ -27,14 +27,12 @@ final class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeUI()
-        
+        makeUI()        
         profileServiceObserver = NotificationCenter.default.addObserver(forName: ProfileService.DidChangeNotification, object: nil, queue: .main) {[weak self] _ in
             guard let self = self else { return }
             self.updateAvatar()
         }
         updateAvatar()
-        view.backgroundColor = .ypBlack
     }
     
     private func makeUI() {
@@ -85,6 +83,5 @@ extension ProfileViewController {
         let processor = RoundCornerImageProcessor(cornerRadius: 61)
         profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: [.processor(processor), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
         profilePhoto.kf.indicatorType = .activity
-        profilePhoto.backgroundColor = .ypBlack
     }
 }
