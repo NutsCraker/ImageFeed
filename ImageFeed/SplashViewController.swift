@@ -34,7 +34,7 @@ final class SplashViewController: UIViewController {
         }
     
     private func switchToTabBarController() {
-        guard let window = UIApplication.shared.windows.first else { fatalError("Invalid Configuration") }
+        guard let window = UIApplication.shared.windows.first else {return assertionFailure("Invalid Configuration") }
         let tabBarController = UIStoryboard(name: "Main", bundle: .main)
             .instantiateViewController(withIdentifier: "TabBarViewController")
         window.rootViewController = tabBarController
@@ -63,7 +63,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 switch result {
                 case .success(let token):
                     self.fetchProfile(token: token)
-                case .failure(let error):
+                case .failure:
                     UIBlockingProgressHUD.dismiss()
                     self.showAllert()
                 }
@@ -80,7 +80,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 UIBlockingProgressHUD.dismiss()
                 self.fetchProfileImage(username: profile.userName)
                 self.switchToTabBarController()
-            case .failure(let error):
+            case .failure:
                 UIBlockingProgressHUD.dismiss()
                 self.showAllert()
             }
@@ -92,7 +92,7 @@ extension SplashViewController: AuthViewControllerDelegate {
            switch result {
            case .success(_):
                 break
-           case .failure(let error):
+           case .failure:
                 self.showAllert()
            }
         })

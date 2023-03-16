@@ -21,7 +21,7 @@ final class SingleImageViewController: UIViewController {
     @IBAction private func DidTapSharingButton(_ sender: Any)  {
         let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityViewController.view.backgroundColor = .ypBlack
-        activityViewController.overrideUserInterfaceStyle = .ypBlack
+        activityViewController.overrideUserInterfaceStyle = .dark
         present(activityViewController, animated: true, completion: nil)
     }
     @IBAction private func DidTapBackButton(_ sender: UIButton) {dismiss(animated: true,completion: nil)
