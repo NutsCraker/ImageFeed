@@ -239,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gQ-0X-rUD">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="756"/>
                                 <color key="backgroundColor" name="YPWhite"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -268,7 +268,7 @@
                             <constraint firstItem="Ynd-6A-kQL" firstAttribute="top" secondItem="3kd-hj-v9m" secondAttribute="bottom" id="0c6-5a-WEy"/>
                             <constraint firstAttribute="bottom" secondItem="5gQ-0X-rUD" secondAttribute="bottom" id="2hx-Z4-ljR"/>
                             <constraint firstItem="t6X-4f-nJX" firstAttribute="trailing" secondItem="Ynd-6A-kQL" secondAttribute="trailing" id="581-fq-JiU"/>
-                            <constraint firstItem="5gQ-0X-rUD" firstAttribute="top" secondItem="P4d-uZ-d4i" secondAttribute="top" id="6PT-Ad-RIr"/>
+                            <constraint firstItem="5gQ-0X-rUD" firstAttribute="top" secondItem="Ynd-6A-kQL" secondAttribute="bottom" id="6PT-Ad-RIr"/>
                             <constraint firstItem="5gQ-0X-rUD" firstAttribute="leading" secondItem="t6X-4f-nJX" secondAttribute="leading" id="8v2-EK-f9V"/>
                             <constraint firstItem="3kd-hj-v9m" firstAttribute="leading" secondItem="t6X-4f-nJX" secondAttribute="leading" constant="16" id="DjJ-M2-MDw"/>
                             <constraint firstItem="t6X-4f-nJX" firstAttribute="trailing" secondItem="5gQ-0X-rUD" secondAttribute="trailing" id="Sjm-ec-ksl"/>
@@ -286,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icI-ea-nZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74" y="852"/>
+            <point key="canvasLocation" x="-75.384615384615387" y="851.65876777251185"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F7Q-sj-Dp1">
@@ -315,9 +315,9 @@
         <image name="0" width="200" height="132"/>
         <image name="14" width="200" height="133"/>
         <image name="back" width="9" height="16"/>
-        <image name="button_back" width="9" height="16"/>
-        <image name="liked" width="15" height="13"/>
-        <image name="sharing" width="25.5" height="25"/>
+        <image name="button_back" width="9" height="15.666666984558105"/>
+        <image name="liked" width="29.333333969116211" height="26"/>
+        <image name="sharing" width="50" height="50"/>
         <namedColor name="YPBackground">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
