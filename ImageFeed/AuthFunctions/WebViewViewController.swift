@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 final class WebViewViewController: UIViewController {
-        
+    
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var webView: WKWebView!
     
@@ -19,10 +19,10 @@ final class WebViewViewController: UIViewController {
     {
         delegate?.webViewViewControllerDidCancel(self)
     }
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-         return .darkContent
-     }
+        return .darkContent
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         var urlComponents = URLComponents(string: "https://unsplash.com/oauth/authorize")!

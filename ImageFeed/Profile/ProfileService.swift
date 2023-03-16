@@ -18,15 +18,15 @@ final class ProfileService {
     static let DidChangeNotification = Notification.Name("ProfileImageProviderDidChange")
     
     private func convertProfile(_ ProfileResult: ProfileResult) -> Profile {
-         return Profile(userName: ProfileResult.userName,
-                        name: "\(ProfileResult.firstName) \(ProfileResult.lastName)",
-                        loginName: "@\(ProfileResult.userName)",
-                        bio: ProfileResult.bio ?? "")
-     }
+        return Profile(userName: ProfileResult.userName,
+                       name: "\(ProfileResult.firstName) \(ProfileResult.lastName)",
+                       loginName: "@\(ProfileResult.userName)",
+                       bio: ProfileResult.bio ?? "")
+    }
     
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         assert(Thread.isMainThread)
-
+        
         var request = URLRequest.makeHTTPRequest (path: "me", httpMethod: "GET", baseURL: defaultBaseURL)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         let task = urlSession.objectTask(for: request, completion: {[weak self] (result: Result<ProfileResult, Error>) in
@@ -46,7 +46,7 @@ final class ProfileService {
     
     func fetchProfileImageURL(userName: String, _ completion: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
-
+        
         var request = URLRequest.makeHTTPRequest(path: "users/\(userName)", httpMethod: "GET")
         if let token = oAuth2TokenStorage.token {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -59,14 +59,14 @@ final class ProfileService {
                 self.avatarURL = newSmallURL
                 completion(.success(newSmallURL))
                 NotificationCenter.default.post(name: ProfileService.DidChangeNotification, object: self,
-                    userInfo: ["URL": newSmallURL])
+                                                userInfo: ["URL": newSmallURL])
             case .failure(let error):
                 completion(.failure(error))
             }
         })
-     self.task = task
-       task.resume()
-   }
+        self.task = task
+        task.resume()
+    }
 }
 
 

@@ -30,8 +30,8 @@ final class SplashViewController: UIViewController {
             authViewController.modalPresentationStyle = .fullScreen
             return present(authViewController, animated: true)
         }
-            fetchProfile(token: token)
-        }
+        fetchProfile(token: token)
+    }
     
     private func switchToTabBarController() {
         guard let window = UIApplication.shared.windows.first else {return assertionFailure("Invalid Configuration") }
@@ -41,7 +41,7 @@ final class SplashViewController: UIViewController {
     }
     
     private func makeUI() {
-         let screenLogo = UIImageView()
+        let screenLogo = UIImageView()
         screenLogo.image = UIImage(named: "AuthView")
         view.backgroundColor = .ypBlack
         view.addSubview(screenLogo)
@@ -49,7 +49,7 @@ final class SplashViewController: UIViewController {
         NSLayoutConstraint.activate([
             screenLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             screenLogo.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            ])
+        ])
     }
 }
 
@@ -69,7 +69,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 }
             }
         })
-        }
+    }
     
     private func fetchProfile(token: String) {
         profileService.fetchProfile(token, completion: {[weak self] result in
@@ -87,17 +87,17 @@ extension SplashViewController: AuthViewControllerDelegate {
         })
     }
     private func fetchProfileImage(username: String) {
-       profileService.fetchProfileImageURL(userName: username, {[weak self] result in
+        profileService.fetchProfileImageURL(userName: username, {[weak self] result in
             guard let self = self else { return }
-           switch result {
-           case .success(_):
+            switch result {
+            case .success(_):
                 break
-           case .failure:
+            case .failure:
                 self.showAllert()
-           }
+            }
         })
     }
-   }
+}
 
 extension SplashViewController {
     func showAllert() {

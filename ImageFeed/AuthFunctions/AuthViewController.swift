@@ -12,8 +12,8 @@ final class AuthViewController: UIViewController {
     static let shared = AuthViewController()
     private let authScreenLogo = UIImageView()
     private let button = UIButton()
-
-           
+    
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -21,9 +21,9 @@ final class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
-     
+        
     }
-
+    
     private func makeUI() {
         view.backgroundColor = .ypBlack
         authScreenLogo.image = UIImage(named: "AuthView")
@@ -53,10 +53,10 @@ final class AuthViewController: UIViewController {
     
     @objc private func buttonEntrance() {
         if let viewController = UIStoryboard(name: "Main", bundle: .main)
-        .instantiateViewController(withIdentifier: "WebViewViewController") as? WebViewViewController {
-        viewController.modalPresentationStyle = .fullScreen
-        viewController.delegate = self
-        present(viewController, animated: true)
+            .instantiateViewController(withIdentifier: "WebViewViewController") as? WebViewViewController {
+            viewController.modalPresentationStyle = .fullScreen
+            viewController.delegate = self
+            present(viewController, animated: true)
         }
     }
 }

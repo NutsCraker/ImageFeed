@@ -19,11 +19,11 @@ final class ProfileViewController: UIViewController {
     private let profileContact = UILabel()
     private let profileAbout = UILabel()
     private let logOutButton = UIButton.systemButton(with: UIImage(named: "logout_button")!,
-                                           target: nil,
-                                           action: nil)
+                                                     target: nil,
+                                                     action: nil)
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-          return .lightContent
+        return .lightContent
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +38,13 @@ final class ProfileViewController: UIViewController {
     
     private func makeUI() {
         view.backgroundColor = .ypBlack
-
-       let allViewOnScreen = [profilePhoto, profileName, profileContact, profileAbout, logOutButton]
+        
+        let allViewOnScreen = [profilePhoto, profileName, profileContact, profileAbout, logOutButton]
         allViewOnScreen.forEach {view.addSubview($0)}
         allViewOnScreen.forEach {$0.translatesAutoresizingMaskIntoConstraints = false}
         
-
-
+        
+        
         profileName.text = profileService.profile?.name
         profileName.font = UIFont.boldSystemFont(ofSize: 23)
         profileName.textColor = .ypWhite

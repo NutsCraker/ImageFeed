@@ -29,7 +29,7 @@ final class ImagesListViewController: UIViewController {
             super.prepare(for: segue, sender: sender)
         }
     }
-
+    
 }
 
 extension ImagesListViewController: UITableViewDataSource {
@@ -86,6 +86,6 @@ extension ImagesListViewController {
         cell.likeButton.setImage(buttonImage, for: .normal)
         
     }
-        
+    
 }
 

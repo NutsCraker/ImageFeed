@@ -8,7 +8,7 @@
 import Foundation
 
 final class OAuth2Service {
-
+    
     private let urlSession = URLSession.shared
     private (set) var authToken: String? {
         get {
@@ -110,7 +110,7 @@ extension URLSession {
         
         let task = dataTask(with: request, completionHandler: {data, respone, error in
             if let data = data,
-                let respone = respone,
+               let respone = respone,
                let statusCode = (respone as? HTTPURLResponse)?.statusCode
             {
                 if 200..<300 ~= statusCode {
@@ -119,10 +119,10 @@ extension URLSession {
                     fullfillCompletion(.failure(NetworkError.httpStatusCode(statusCode)))
                 }
             } else if let error = error {
-                    fullfillCompletion(.failure(NetworkError.urlRequestError(error)))
-                } else {
-                    fullfillCompletion(.failure(NetworkError.urlSessionError))
-                }
+                fullfillCompletion(.failure(NetworkError.urlRequestError(error)))
+            } else {
+                fullfillCompletion(.failure(NetworkError.urlSessionError))
+            }
         })
         task.resume()
         return task

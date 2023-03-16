@@ -10,7 +10,7 @@ import SwiftKeychainWrapper
 
 final class OAuth2TokenStorage {
     
-     var token: String? {
+    var token: String? {
         get {
             guard let token = KeychainWrapper.standard.string(forKey: Keys.token.rawValue) else {
                 return nil

@@ -12,13 +12,6 @@ private enum NetworkError: Error {
     case urlRequestError(Error)
     case urlSessionError
 }
-//extension URLRequest {
-//    static func makeHTTPRequest(path: String, typeRequest: String, baseURL: URL = defaultBaseURL) -> URLRequest {
-//        var request = URLRequest(url: URL(string: path, relativeTo: baseURL)!)
-//        request.httpMethod = typeRequest
-//        return request
-//    }
-//}
 
 extension URLSession {
     func objectTask<T: Decodable>(for request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionTask {
@@ -34,20 +27,20 @@ extension URLSession {
                         let decoder = JSONDecoder()
                         let result = try decoder.decode(T.self, from: data)
                         fullfillCompletion(.success(result))
-                        } catch {
-                            fullfillCompletion(.failure(error))
-                        }
-                        } else {
-                            fullfillCompletion(.failure(NetworkError.httpStatusCode(statusCode)))
-                        }
-                        }else if let error {
-                            fullfillCompletion(.failure(NetworkError.urlRequestError(error)))
-                        } else {
-                            fullfillCompletion(.failure(NetworkError.urlSessionError))
-                        }
-                        })
-                        task.resume()
-                        return task
+                    } catch {
+                        fullfillCompletion(.failure(error))
                     }
+                } else {
+                    fullfillCompletion(.failure(NetworkError.httpStatusCode(statusCode)))
+                }
+            }else if let error {
+                fullfillCompletion(.failure(NetworkError.urlRequestError(error)))
+            } else {
+                fullfillCompletion(.failure(NetworkError.urlSessionError))
+            }
+        })
+        task.resume()
+        return task
+    }
 }
 
