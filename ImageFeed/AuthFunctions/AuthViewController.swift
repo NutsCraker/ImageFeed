@@ -12,25 +12,18 @@ final class AuthViewController: UIViewController {
     static let shared = AuthViewController()
     private let authScreenLogo = UIImageView()
     private let button = UIButton()
-    //private let showWebView = "ShowWebView"
+
            
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
      
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowWebView" {
-//            let viewController = segue.destination as! WebViewViewController
-//            viewController.delegate = self
-//        } else {
-//            super.prepare(for: segue, sender: sender)
-//        }
-//    }
-  
-    
-    
+
     private func makeUI() {
         view.backgroundColor = .ypBlack
         authScreenLogo.image = UIImage(named: "AuthView")

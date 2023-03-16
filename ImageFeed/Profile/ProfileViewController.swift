@@ -22,7 +22,9 @@ final class ProfileViewController: UIViewController {
                                            target: nil,
                                            action: nil)
     
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
@@ -56,6 +58,7 @@ final class ProfileViewController: UIViewController {
         profileAbout.textColor = .ypWhite
         
         logOutButton.tintColor = .ypRed
+        profilePhoto.backgroundColor = .ypBlack
         
         NSLayoutConstraint.activate([
             profilePhoto.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
@@ -68,16 +71,19 @@ final class ProfileViewController: UIViewController {
             profileContact.topAnchor.constraint(equalTo: profileAbout.bottomAnchor, constant: 8),
             logOutButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -26),
             logOutButton.centerYAnchor.constraint(equalTo: profilePhoto.centerYAnchor)
+            
         ])
     }
 }
+
 
 extension ProfileViewController {
     private func updateAvatar() {
         guard  let profileImageURL = ProfileService.shared.avatarURL,
                let url = URL(string: profileImageURL)  else { return }
         let processor = RoundCornerImageProcessor(cornerRadius: 61)
-        profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder.jpeg"), options: [.processor(processor)])
+        profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: [.processor(processor)])
         profilePhoto.kf.indicatorType = .activity
+        profilePhoto.backgroundColor = .ypBlack
     }
 }

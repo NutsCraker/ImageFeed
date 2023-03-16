@@ -20,12 +20,16 @@ final class SingleImageViewController: UIViewController {
     
     @IBAction private func DidTapSharingButton(_ sender: Any)  {
         let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        activityViewController.view.backgroundColor = .ypBlack
+        activityViewController.overrideUserInterfaceStyle = .ypBlack
         present(activityViewController, animated: true, completion: nil)
     }
     @IBAction private func DidTapBackButton(_ sender: UIButton) {dismiss(animated: true,completion: nil)
     }
     
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.minimumZoomScale = 0.1

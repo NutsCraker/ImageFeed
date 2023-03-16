@@ -20,7 +20,9 @@ final class WebViewViewController: UIViewController {
         delegate?.webViewViewControllerDidCancel(self)
     }
 
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+         return .darkContent
+     }
     override func viewDidLoad() {
         super.viewDidLoad()
         var urlComponents = URLComponents(string: "https://unsplash.com/oauth/authorize")!
@@ -67,7 +69,6 @@ final class WebViewViewController: UIViewController {
         progressView.setProgress(Float(webView.estimatedProgress), animated: false)
         progressView.isHidden = fabs(webView.estimatedProgress - 1.0) <= 0.0001
     }
-    
 }
 
 extension WebViewViewController: WKNavigationDelegate {

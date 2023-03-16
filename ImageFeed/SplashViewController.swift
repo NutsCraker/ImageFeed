@@ -14,6 +14,10 @@ final class SplashViewController: UIViewController {
     private let profileService = ProfileService.shared
     private let authViewController = AuthViewController.shared
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
@@ -27,7 +31,6 @@ final class SplashViewController: UIViewController {
             return present(authViewController, animated: true)
         }
             fetchProfile(token: token)
-            self.switchToTabBarController()
         }
     
     private func switchToTabBarController() {
@@ -98,7 +101,7 @@ extension SplashViewController: AuthViewControllerDelegate {
 
 extension SplashViewController {
     func showAllert() {
-        let alert = UIAlertController(title: "Что-то пошло не так!", message: "У-п-с-с", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Что-то пошло не так(", message: "Не удалось войти в систему", preferredStyle: .alert)
         let action = UIAlertAction(title: "ОК", style: .default, handler: {_ in
             alert.dismiss(animated: true)
         })
