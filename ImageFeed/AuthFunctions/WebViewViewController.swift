@@ -33,7 +33,7 @@ final class WebViewViewController: UIViewController {
             URLQueryItem(name: "scope", value: accessScope)
         ]
         let url = urlComponents.url!
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
         webView.load(request)
         webView.navigationDelegate = self
     }
