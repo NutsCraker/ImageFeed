@@ -16,7 +16,7 @@ final class SingleImageViewController: UIViewController {
     }
     @IBOutlet private weak var scrollView: UIScrollView!
     
-    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     @IBAction private func DidTapSharingButton(_ sender: Any)  {
         let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)

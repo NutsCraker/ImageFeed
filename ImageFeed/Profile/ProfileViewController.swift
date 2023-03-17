@@ -14,11 +14,11 @@ final class ProfileViewController: UIViewController {
     private let profileService = ProfileService.shared
     private var profileServiceObserver: NSObjectProtocol?
     
-    private let profilePhoto = UIImageView()
-    private let profileName = UILabel()
-    private let profileContact = UILabel()
-    private let profileAbout = UILabel()
-    private let logOutButton = UIButton.systemButton(with: UIImage(named: "logout_button")!,
+    private lazy var profilePhoto = UIImageView()
+    private lazy var profileName = UILabel()
+    private lazy var profileContact = UILabel()
+    private lazy var profileAbout = UILabel()
+    private lazy var logOutButton = UIButton.systemButton(with: UIImage(named: "logout_button")!,
                                                      target: nil,
                                                      action: nil)
     
@@ -27,7 +27,7 @@ final class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeUI()        
+        makeUI()
         profileServiceObserver = NotificationCenter.default.addObserver(forName: ProfileService.DidChangeNotification, object: nil, queue: .main) {[weak self] _ in
             guard let self = self else { return }
             self.updateAvatar()
@@ -81,7 +81,8 @@ extension ProfileViewController {
         guard  let profileImageURL = ProfileService.shared.avatarURL,
                let url = URL(string: profileImageURL)  else { return }
         let processor = RoundCornerImageProcessor(cornerRadius: 61)
-        profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: [.processor(processor), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
         profilePhoto.kf.indicatorType = .activity
+        profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: [.processor(processor), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
+        
     }
 }
