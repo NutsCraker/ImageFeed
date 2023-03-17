@@ -80,7 +80,7 @@ extension ProfileViewController {
     private func updateAvatar() {
         guard  let profileImageURL = ProfileService.shared.avatarURL,
                let url = URL(string: profileImageURL)  else { return }
-        let processor = RoundCornerImageProcessor(cornerRadius: 61)
+        let processor = RoundCornerImageProcessor(cornerRadius: 50)
         profilePhoto.kf.indicatorType = .activity
         profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: [.processor(processor), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
         
