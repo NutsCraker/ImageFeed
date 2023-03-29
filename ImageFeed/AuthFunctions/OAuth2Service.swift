@@ -8,7 +8,8 @@
 import Foundation
 
 final class OAuth2Service {
-    
+    private var lastCode: String?
+    private var task: URLSessionTask?
     private let urlSession = URLSession.shared
     private (set) var authToken: String? {
         get {
@@ -126,5 +127,5 @@ extension URLSession {
         })
         task.resume()
         return task
-    }
+    }          
 }
