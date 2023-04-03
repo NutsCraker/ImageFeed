@@ -12,13 +12,12 @@ import Foundation
 final class ImagesListService {
     
     private (set) var photos: [Photo] = []
-    private var lastLoadedPage: Int?
+    private var loadedPage: Int = 1
     private let urlSession = URLSession.shared
     private let oAuth2TokenStorage = OAuth2TokenStorage()
     private var task: URLSessionTask?
     private var likeTak: URLSessionTask?
-    static let DidChangeNotification = Notification.Name(rawValue: "ImagesListServiceDidChange")
-    private var page: Int?
+    static  let didChangeNotification = Notification.Name(rawValue: "ImagesListServiceDidChange")
     private var perPage = 10
     static let shared = ImagesListService()
     
@@ -42,10 +41,11 @@ final class ImagesListService {
     
     
     func fetchPhotosNextPage() {
-        let nextPage = lastLoadedPage == nil ? 1 : lastLoadedPage! + 1
+        loadedPage = loadedPage+1
+        print (loadedPage)
         assert(Thread.isMainThread)
         task?.cancel()
-        var request = URLRequest.makeHTTPRequest(path: "\(photosPath)?page=\(nextPage)&&per_page=\(perPage)", httpMethod: "GET")
+        var request = URLRequest.makeHTTPRequest(path: "\(photosPath)?page=\(loadedPage)&&per_page=\(perPage)", httpMethod: "GET")
         if let token = oAuth2TokenStorage.token {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
@@ -55,7 +55,7 @@ final class ImagesListService {
                 switch result {
                 case .success(let photosResult):
                     self.makePhoto(photosResult)
-                    NotificationCenter.default.post(name: ImagesListService.DidChangeNotification, object: self, userInfo: ["photos": self.photos])
+                    NotificationCenter.default.post(name: ImagesListService.didChangeNotification, object: self, userInfo: ["photos": self.photos])
                 case .failure(_):
                     break
                 }

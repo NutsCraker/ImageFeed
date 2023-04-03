@@ -49,11 +49,12 @@ final class ImagesListViewController: UIViewController {
     
     func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
         guard let url = URL(string: photos[indexPath.row].thumbImageURL) else { return }
-        cell.imageCell.kf.setImage(with: url, placeholder: UIImage(named: "zaglushka.png"), completionHandler: { [weak self] _ in
+        cell.imageCell.kf.setImage(with: url, placeholder: UIImage(named: "loading_pic"), completionHandler: { [weak self] _ in
             guard let self = self else { return }
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
         })
         cell.imageCell.kf.indicatorType = .activity
+        cell.selectionStyle = .none
         
         guard let textData = photos[indexPath.row].createdAt else { return }
         cell.dateLabel.text = dateFormatter.string(from: textData)
