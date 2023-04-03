@@ -40,7 +40,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="likeButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da8-JB-ha6" userLabel="likeButton">
-                                                    <rect key="frame" x="330.33333333333331" y="4" width="43.666666666666686" height="34.333333333333336"/>
+                                                    <rect key="frame" x="316" y="4" width="58" height="40"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="liked" title=" "/>
                                                 </button>
@@ -102,7 +102,6 @@
         <!--TabBarViewController-->
         <scene sceneID="u5n-BD-H4J">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aHw-iE-RxE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="TabBarViewController" title="TabBarViewController" id="Yl4-PS-d18" customClass="TabBarViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ELc-ka-SOp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
@@ -114,6 +113,7 @@
                         </tabBarAppearance>
                     </tabBar>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHw-iE-RxE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="35" y="-724"/>
         </scene>

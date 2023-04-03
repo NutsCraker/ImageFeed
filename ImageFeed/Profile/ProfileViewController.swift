@@ -13,14 +13,15 @@ final class ProfileViewController: UIViewController {
     
     private let profileService = ProfileService.shared
     private var profileServiceObserver: NSObjectProtocol?
+    private let oAuth2TokenStorage = OAuth2TokenStorage()
+    //private let webViewViewController = WebViewViewController()
     
     private lazy var profilePhoto = UIImageView()
     private lazy var profileName = UILabel()
     private lazy var profileContact = UILabel()
     private lazy var profileAbout = UILabel()
-    private lazy var logOutButton = UIButton.systemButton(with: UIImage(named: "logout_button")!,
-                                                     target: nil,
-                                                     action: nil)
+
+    private let logOutButton = UIButton.systemButton(with: UIImage(named: "logout_button")!, target: nil, action: #selector(Self.didTapButton))
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -85,4 +86,30 @@ extension ProfileViewController {
         profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: [.processor(processor), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
         
     }
+@objc
+   private func didTapButton() {
+       showAlert()
+   }
+   
+   private func exit() {
+       oAuth2TokenStorage.removeToken()
+       WebViewViewController.clean()
+       guard let window = UIApplication.shared.windows.first else { return assertionFailure("Invalid Configuration") }
+       let authVC = UIStoryboard(name: "Main", bundle: .main)
+           .instantiateViewController(withIdentifier: "AuthViewController")
+       window.rootViewController = authVC
+   }
+    private func showAlert() {
+          let alert = UIAlertController(title: "Пока, пока!", message: "Уверены что хотите выйти?", preferredStyle: .alert)
+          let actionYes = UIAlertAction(title: "Да", style: .default) {[weak self] _ in
+              guard let self = self else { return }
+              self.exit()
+          }
+          let actionNo = UIAlertAction(title: "Нет", style: .default) { _ in
+              alert.dismiss(animated: true)
+          }
+          alert.addAction(actionYes)
+          alert.addAction(actionNo)
+          present(alert, animated: true)
+      }
 }

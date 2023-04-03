@@ -7,7 +7,7 @@
 
 import UIKit
 final class AuthViewController: UIViewController {
-    
+    static let reuseIdentifier = "AuthViewController"
     weak var delegate: AuthViewControllerDelegate?
     static let shared = AuthViewController()
     private let authScreenLogo = UIImageView()
