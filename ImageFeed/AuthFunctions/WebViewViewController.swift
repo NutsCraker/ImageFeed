@@ -69,8 +69,15 @@ final class WebViewViewController: UIViewController {
         progressView.setProgress(Float(webView.estimatedProgress), animated: false)
         progressView.isHidden = fabs(webView.estimatedProgress - 1.0) <= 0.0001
     }
-}
-
+    
+    static func clean() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), completionHandler: { records in
+            records.forEach({ record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+            })
+        }
+        )}}
 extension WebViewViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

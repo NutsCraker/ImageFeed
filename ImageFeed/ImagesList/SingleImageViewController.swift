@@ -8,18 +8,18 @@
 import UIKit
 
 final class SingleImageViewController: UIViewController {
-    var image: UIImage! {
-        didSet {
-            guard isViewLoaded else { return }
-            rescaleAndCenterImageInScrollView(image: image)
-        }
-    }
+    var imageURL: URL? {
+           didSet {
+               guard isViewLoaded else { return }
+               setImage(url: imageURL)
+           }
+       }
     @IBOutlet private weak var scrollView: UIScrollView!
     
     @IBOutlet private weak var imageView: UIImageView!
     
     @IBAction private func DidTapSharingButton(_ sender: Any)  {
-        let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [imageURL!], applicationActivities: nil)
         activityViewController.view.backgroundColor = .ypBlack
         activityViewController.overrideUserInterfaceStyle = .dark
         present(activityViewController, animated: true, completion: nil)
@@ -34,10 +34,23 @@ final class SingleImageViewController: UIViewController {
         super.viewDidLoad()
         scrollView.minimumZoomScale = 0.1
         scrollView.maximumZoomScale = 1.25
-        imageView.image = image
-        rescaleAndCenterImageInScrollView(image: image)
+        setImage(url: imageURL)
+        
     }
-    
+    func setImage(url: URL?) {
+           guard let url = url else { return }
+           UIBlockingProgressHUD.show()
+           imageView.kf.setImage(with: url) {[weak self] result in
+               UIBlockingProgressHUD.dismiss()
+               guard let self = self else { return }
+               switch result {
+               case .success(let resultImage):
+                   self.rescaleAndCenterImageInScrollView(image: resultImage.image)
+               case .failure(_):
+                   self.showError()
+               }
+           }
+       }
     
     
     private func rescaleAndCenterImageInScrollView(image: UIImage) {
@@ -62,5 +75,20 @@ final class SingleImageViewController: UIViewController {
 extension SingleImageViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         imageView
+    }
+}
+extension SingleImageViewController {
+    private func showError() {
+        let alert = UIAlertController(title: nil, message: "Что-то пошло не так. Попробовать ещё раз?", preferredStyle: .alert)
+        let dissmissAction = UIAlertAction(title: "Не надо", style: .default) {_ in
+            alert.dismiss(animated: true)
+        }
+        let repeatAction = UIAlertAction(title: "Повторить", style: .default) {[weak self] _ in
+            guard let self = self else { return }
+            self.setImage(url: self.imageURL)
+        }
+        alert.addAction(dissmissAction)
+        alert.addAction(repeatAction)
+        present(alert, animated: true)
     }
 }
