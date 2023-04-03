@@ -10,22 +10,25 @@ final class ImagesListCell: UITableViewCell {
     
     weak var delegate: ImagesListCellDelegate?
     
-    
+   // override var preferredStatusBarStyle: UIStatusBarStyle {
+   //     return .lightContent
+   // }
     
     override func prepareForReuse() {
            super.prepareForReuse()
            imageCell.kf.cancelDownloadTask()
        }
+    
     @IBAction func likeButtonClicked(_ sender: Any) {
-         delegate?.imageListCellDidTapLike(self)
-     }
+        delegate?.imageListCellDidTapLike(self)
+    }
     
     
     func setLike(like: Bool) {
             if like {
-                likeButton.setImage(UIImage(named: "Active"), for: .normal)
+                likeButton.setImage(UIImage(named: "liked"), for: .normal)
             } else {
-                likeButton.setImage(UIImage(named: "No Active"), for: .normal)
+                likeButton.setImage(UIImage(named: "notLiked"), for: .normal)
             }
         }
 }

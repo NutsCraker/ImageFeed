@@ -43,6 +43,9 @@
                                                     <rect key="frame" x="316" y="4" width="58" height="40"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="liked" title=" "/>
+                                                    <connections>
+                                                        <action selector="likeButtonClicked:" destination="25u-6U-QSg" eventType="touchDown" id="db2-Uk-1hc"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05 марта 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzD-Ta-Duz" userLabel="Date Label">
                                                     <rect key="frame" x="23.999999999999993" y="288" width="93.333333333333314" height="16"/>
@@ -195,7 +198,7 @@
         <!--AuthViewController-->
         <scene sceneID="e9T-XO-2Qd">
             <objects>
-                <viewController title="AuthViewController" id="7Z9-01-eRt" customClass="AuthViewController" customModule="ImageFeed" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" title="AuthViewController" id="7Z9-01-eRt" customClass="AuthViewController" customModule="ImageFeed" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="aIM-xZ-w7B">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

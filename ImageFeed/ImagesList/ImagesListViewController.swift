@@ -6,8 +6,9 @@ protocol ImagesListCellDelegate: AnyObject {
 }
 
 final class ImagesListViewController: UIViewController {
-    
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     @IBOutlet private var tableView: UITableView!
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
