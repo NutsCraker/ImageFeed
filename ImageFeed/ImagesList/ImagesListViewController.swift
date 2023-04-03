@@ -28,7 +28,7 @@ final class ImagesListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
-        imageListServiceObserver = NotificationCenter.default.addObserver(forName: ImagesListService.DidChangeNotification,
+        imageListServiceObserver = NotificationCenter.default.addObserver(forName: ImagesListService.didChangeNotification,
                                                                           object: nil, queue: .main) { [weak self] _ in
             guard let self = self else { return }
             self.updateTableViewAnimated()

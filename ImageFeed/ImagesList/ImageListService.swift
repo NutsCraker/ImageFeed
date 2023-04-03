@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 final class ImagesListService {
     
     private (set) var photos: [Photo] = []
