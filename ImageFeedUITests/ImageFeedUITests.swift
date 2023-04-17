@@ -9,7 +9,7 @@ import XCTest
 
 final class ImageFeedUITests: XCTestCase {
     
-    private let login = ""
+    private let login = "afarizanov@yandex.ru"
     private let password = ""
     private let userName = ""
     private let userContact = ""
@@ -41,7 +41,6 @@ final class ImageFeedUITests: XCTestCase {
         passwordTextField.typeText("\(password)")
         webView.swipeUp()
         
-        print(app.debugDescription)
         
         let webViewsQuery = app.webViews
         
