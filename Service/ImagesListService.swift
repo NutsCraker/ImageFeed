@@ -7,10 +7,9 @@
 
 import Foundation
 
-class ImagesListService {
+final class ImagesListService {
     
     private (set) var photos: [Photo] = []
-    private var lastLoadedPage: Int?
     private let urlSession = URLSession.shared
     private var nextPage = 0
     private let oAuth2TokenStorage = OAuth2TokenStorage()
