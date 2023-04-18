@@ -49,7 +49,7 @@
 		A5D8472729AF33B50057805A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8472629AF33B50057805A /* SplashViewController.swift */; };
 		A5DECBF329BDC95D005EC5F1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A5DECBF229BDC95D005EC5F1 /* Kingfisher */; };
 		A5E1CE7F298D082700ECE9BF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E1CE7E298D082700ECE9BF /* ProfileViewController.swift */; };
-		A5E269A729C0E72D000B5BCA /* ProfileResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E269A629C0E72D000B5BCA /* ProfileResult.swift */; };
+		A5E269A729C0E72D000B5BCA /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E269A629C0E72D000B5BCA /* ResponseResult.swift */; };
 		A5E269A929C0E770000B5BCA /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E269A829C0E770000B5BCA /* UserResult.swift */; };
 		A5EC065F29DACB8100341D49 /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC065E29DACB8100341D49 /* WebViewPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -115,7 +115,7 @@
 		A5C9C6DA29B7734C00141640 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		A5D8472629AF33B50057805A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A5E1CE7E298D082700ECE9BF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		A5E269A629C0E72D000B5BCA /* ProfileResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResult.swift; sourceTree = "<group>"; };
+		A5E269A629C0E72D000B5BCA /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
 		A5E269A829C0E770000B5BCA /* UserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
 		A5EC065E29DACB8100341D49 /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,7 +305,7 @@
 		A5E269A529C0E6E5000B5BCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A5E269A629C0E72D000B5BCA /* ProfileResult.swift */,
+				A5E269A629C0E72D000B5BCA /* ResponseResult.swift */,
 				A5E269A829C0E770000B5BCA /* UserResult.swift */,
 				A5147D2F29C4DC0D000B6272 /* ImagePhoto.swift */,
 			);
@@ -473,7 +473,7 @@
 			files = (
 				A54DA45B29AE1EC10076167C /* OAuth2TokenStorage.swift in Sources */,
 				A54CA14829A6097C00F13EDF /* WebViewViewController.swift in Sources */,
-				A5E269A729C0E72D000B5BCA /* ProfileResult.swift in Sources */,
+				A5E269A729C0E72D000B5BCA /* ResponseResult.swift in Sources */,
 				A577D4BC297D417100F2B4EA /* ImagesListViewController.swift in Sources */,
 				A5C10B1B29DE0766001BB765 /* ImageListPresenter.swift in Sources */,
 				A5EC065F29DACB8100341D49 /* WebViewPresenter.swift in Sources */,
