@@ -12,6 +12,7 @@ class ImagesListService {
     private (set) var photos: [Photo] = []
     private var lastLoadedPage: Int?
     private let urlSession = URLSession.shared
+    private var nextPage = 0
     private let oAuth2TokenStorage = OAuth2TokenStorage()
     private var task: URLSessionTask?
     private var likeTak: URLSessionTask?
@@ -40,10 +41,10 @@ class ImagesListService {
     
     
     func fetchPhotosNextPage() {
-        let nextPage = lastLoadedPage == nil ? 1 : lastLoadedPage! + 1
+        nextPage = nextPage + 1
         assert(Thread.isMainThread)
         task?.cancel()
-        var request = URLRequest.makeHTTPRequest(path: "\(photosPath)?page=\(nextPage)&&per_page=\(perPage)", httpMethod: get)
+        var request = URLRequest.makeHTTPRequest(path: "\(photosPath)?page=\(nextPage)&&per_page=\(perPage)", httpMethod: "GET")
         if let token = oAuth2TokenStorage.token {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
@@ -67,7 +68,7 @@ class ImagesListService {
         assert(Thread.isMainThread)
         likeTak?.cancel()
         if !isLike {
-            var request = URLRequest.makeHTTPRequest(path: "\(photosPath)/\(photoId)/like", httpMethod: post)
+            var request = URLRequest.makeHTTPRequest(path: "\(photosPath)/\(photoId)/like", httpMethod: "POST")
             if let token = oAuth2TokenStorage.token {
                 request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             }
@@ -87,7 +88,7 @@ class ImagesListService {
             self.likeTak = task
             task.resume()
         } else {
-            var request = URLRequest.makeHTTPRequest(path: "\(photosPath)/\(photoId)/like", httpMethod: delete)
+            var request = URLRequest.makeHTTPRequest(path: "\(photosPath)/\(photoId)/like", httpMethod: "DELTE")
             if let token = oAuth2TokenStorage.token {
                 request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             }

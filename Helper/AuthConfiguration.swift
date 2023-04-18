@@ -13,9 +13,6 @@ let RedirectURI = "urn:ietf:wg:oauth:2.0:oob"
 let AccessScope = "public+read_user+write_likes"
 let profilePath = "me"
 let photosPath = "photos"
-let get = "GET"
-let post = "POST"
-let delete = "DELETE"
 
 var DefaultBaseURL: URL {
     guard let url = URL(string: "https://api.unsplash.com/") else {

@@ -49,7 +49,7 @@ final class OAuth2Service {
 extension OAuth2Service {
     private func object(for request: URLRequest,
                         completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void) -> URLSessionTask {
-        return urlSession.objectTask(for: request, completion: {[weak self] (result: Result<OAuthTokenResponseBody, Error>) in
+        return urlSession.objectTask(for: request, completion: { (result: Result<OAuthTokenResponseBody, Error>) in
             switch result {
             case .success(let body):
                 completion(.success(body))
