@@ -188,8 +188,6 @@
 		A577D4AB297D417000F2B4EA = {
 			isa = PBXGroup;
 			children = (
-				A5E269A529C0E6E5000B5BCA /* Models */,
-				A5C9C6D929B7732B00141640 /* Services */,
 				A577D4B6297D417100F2B4EA /* ImageFeed */,
 				A5562AEA29DB039E000EF9FE /* ImageFeedTests */,
 				A5A07F1229E06A1F0020EB0F /* ImageFeedUITests */,
@@ -210,6 +208,8 @@
 		A577D4B6297D417100F2B4EA /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				A5E269A529C0E6E5000B5BCA /* Models */,
+				A5C9C6D929B7732B00141640 /* Services */,
 				A577D4B7297D417100F2B4EA /* AppDelegate.swift */,
 				A577D4B9297D417100F2B4EA /* SceneDelegate.swift */,
 				A58C4754299D2B61005789CC /* Resources */,
@@ -749,9 +749,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.nutscracker.ImageFeedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = ImageFeed;
 			};
 			name = Debug;
@@ -767,9 +770,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.nutscracker.ImageFeedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = ImageFeed;
 			};
 			name = Release;
