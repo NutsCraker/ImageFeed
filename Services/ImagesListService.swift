@@ -87,7 +87,7 @@ final class ImagesListService {
             self.likeTak = task
             task.resume()
         } else {
-            var request = URLRequest.makeHTTPRequest(path: "\(photosPath)/\(photoId)/like", httpMethod: "DELTE")
+            var request = URLRequest.makeHTTPRequest(path: "\(photosPath)/\(photoId)/like", httpMethod: "DELETE")
             if let token = oAuth2TokenStorage.token {
                 request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             }

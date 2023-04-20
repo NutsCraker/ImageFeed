@@ -22,7 +22,7 @@ final class ImageFeedUITests: XCTestCase {
     
     func testAuth() throws {
         app.buttons["Authenticate"].tap()
-        let webView = app.webViews["WebView"]
+        let webView = app.webViews["UnsplashWebView"]
         XCTAssertTrue(webView.waitForExistence(timeout: 5))
         
         let loginTextField = webView.descendants(matching: .textField).element
@@ -89,7 +89,8 @@ final class ImageFeedUITests: XCTestCase {
         sleep(1)
         
         app.alerts["exit"].scrollViews.otherElements.buttons["Да"].tap()
-        XCTAssertTrue(app.staticTexts["Text"].exists)
+        //XCTAssertTrue(app.staticTexts["Text"].exists)
+        XCTAssertTrue(app.buttons["Authenticate"].exists)
     }
     
 }
