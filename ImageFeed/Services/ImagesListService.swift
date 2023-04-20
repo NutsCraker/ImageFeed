@@ -40,7 +40,7 @@ final class ImagesListService {
     
     
     func fetchPhotosNextPage() {
-        nextPage = nextPage + 1
+        nextPage += 1
         assert(Thread.isMainThread)
         task?.cancel()
         var request = URLRequest.makeHTTPRequest(path: "\(photosPath)?page=\(nextPage)&&per_page=\(perPage)", httpMethod: "GET")
