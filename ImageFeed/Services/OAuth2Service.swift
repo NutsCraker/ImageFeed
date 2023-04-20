@@ -8,10 +8,9 @@
 import Foundation
 
 final class OAuth2Service {
-    
-    private let urlSession = URLSession.shared
     private var lastCode: String?
     private var task: URLSessionTask?
+    private let urlSession = URLSession.shared
     private (set) var authToken: String? {
         get {
             return OAuth2TokenStorage().token
@@ -23,25 +22,18 @@ final class OAuth2Service {
     }
     
     func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
-        assert(Thread.isMainThread)
-        if lastCode == code { return }
-        task?.cancel()
-        lastCode = code
         let request = authTokenRequest(code: code)
         let task = object(for: request) {[weak self] result in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                switch result {
-                case .success(let body):
-                    let authToken = body.accessToken
-                    self.authToken = authToken
-                    completion(.success(authToken))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+            guard let self = self else { return }
+            switch result {
+            case .success(let body):
+                let authToken = body.accessToken
+                self.authToken = authToken
+                completion(.success(authToken))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
-        self.task = task
         task.resume()
     }
 }
@@ -49,10 +41,16 @@ final class OAuth2Service {
 extension OAuth2Service {
     private func object(for request: URLRequest,
                         completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void) -> URLSessionTask {
-        return urlSession.objectTask(for: request, completion: { (result: Result<OAuthTokenResponseBody, Error>) in
+        let decoder = JSONDecoder()
+        return urlSession.data(for: request, completion: {(result: Result<Data, Error>) in
             switch result {
-            case .success(let body):
-                completion(.success(body))
+            case .success(let data):
+                do {
+                    let object = try decoder.decode(OAuthTokenResponseBody.self, from: data)
+                    completion(.success(object))
+                } catch {
+                    completion(.failure(error))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -82,5 +80,50 @@ extension OAuth2Service {
             case scope
             case createdAt = "created_at"
         }
+    }
+}
+
+// MARK: - HTTP Request
+//extension URLRequest {
+//    static func makeHTTPRequest(path: String, httpMethod: String, baseURL: URL = DefaultBaseURL) -> URLRequest {
+//        var request = URLRequest(url: URL(string: path, relativeTo: baseURL)!)
+//        request.httpMethod = httpMethod
+//        return request
+//    }
+//}
+
+// MARK: - Network Connection
+private enum NetworkError: Error {
+    case httpStatusCode(Int)
+    case urlRequestError(Error)
+    case urlSessionError
+}
+
+extension URLSession {
+    func data(for request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionTask {
+        let fullfillCompletion: (Result<Data, Error>) -> Void = { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+        
+        let task = dataTask(with: request, completionHandler: {data, respone, error in
+            if let data = data,
+               let respone = respone,
+               let statusCode = (respone as? HTTPURLResponse)?.statusCode
+            {
+                if 200..<300 ~= statusCode {
+                    fullfillCompletion(.success(data))
+                } else {
+                    fullfillCompletion(.failure(NetworkError.httpStatusCode(statusCode)))
+                }
+            } else if let error = error {
+                fullfillCompletion(.failure(NetworkError.urlRequestError(error)))
+            } else {
+                fullfillCompletion(.failure(NetworkError.urlSessionError))
+            }
+        })
+        task.resume()
+        return task
     }
 }

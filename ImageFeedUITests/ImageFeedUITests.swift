@@ -9,9 +9,9 @@ import XCTest
 
 final class ImageFeedUITests: XCTestCase {
     
-    private let login = ""
-    private let password = ""
-    private let userName = ""
+    private let login = "farizanov@gmail.com"
+    private let password = "yfnfif20"
+    private let userName = "AlexFR"
     private let userContact = ""
     
     private let app = XCUIApplication()
@@ -23,8 +23,8 @@ final class ImageFeedUITests: XCTestCase {
     func testAuth() throws {
         app.buttons["Authenticate"].tap()
         let webView = app.webViews["UnsplashWebView"]
-        XCTAssertTrue(webView.waitForExistence(timeout: 5))
-        
+        XCTAssertTrue(webView.waitForExistence(timeout: 20))
+        webView.swipeUp()
         let loginTextField = webView.descendants(matching: .textField).element
         XCTAssertTrue(loginTextField.waitForExistence(timeout: 20))
         
@@ -35,7 +35,7 @@ final class ImageFeedUITests: XCTestCase {
         
         
         let passwordTextField = webView.descendants(matching: .secureTextField).element
-        XCTAssertTrue(passwordTextField.waitForExistence(timeout: 7))
+        XCTAssertTrue(passwordTextField.waitForExistence(timeout: 20))
         
         passwordTextField.tap()
         passwordTextField.typeText(password)
