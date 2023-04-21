@@ -21,7 +21,8 @@ var DefaultBaseURL: URL {
     return url
 }
 
-let unsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
+let UnsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
+
 
 struct AuthConfiguration {
     let accessKey: String
@@ -40,12 +41,12 @@ struct AuthConfiguration {
         self.authURLString = authURLString
     }
     
-    static var standard: AuthConfiguration {
+    static var standart: AuthConfiguration {
         return AuthConfiguration(accessKey: AccessKey,
                                  secretKey: SecretKey,
                                  redirectURI: RedirectURI,
                                  accessScope: AccessScope,
                                  defaultBaseURL: DefaultBaseURL,
-                                 authURLString: unsplashAuthorizeURLString)
+                                 authURLString: UnsplashAuthorizeURLString)
     }
 }

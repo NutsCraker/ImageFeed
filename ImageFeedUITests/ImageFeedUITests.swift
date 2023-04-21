@@ -9,9 +9,9 @@ import XCTest
 
 final class ImageFeedUITests: XCTestCase {
     
-    private let login = "farizanov@gmail.com"
-    private let password = "yfnfif20"
-    private let userName = "AlexFR"
+    private let login = ""
+    private let password = ""
+    private let userName = ""
     private let userContact = ""
     
     private let app = XCUIApplication()
