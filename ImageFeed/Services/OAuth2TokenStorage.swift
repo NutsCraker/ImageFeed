@@ -4,11 +4,11 @@
 //
 //  Created by Alexander Farizanov on 28.02.2023.
 //
-
 import Foundation
 import SwiftKeychainWrapper
 
 final class OAuth2TokenStorage {
+    
     var token: String? {
         get {
             guard let token = KeychainWrapper.standard.string(forKey: Keys.token.rawValue) else {
@@ -28,8 +28,9 @@ final class OAuth2TokenStorage {
     private enum Keys: String {
         case token
     }
-    
     func removeToken() {
-        let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: Keys.token.rawValue)
-    }
+           KeychainWrapper.standard.removeObject(forKey: Keys.token.rawValue)
+        }
 }
+
+

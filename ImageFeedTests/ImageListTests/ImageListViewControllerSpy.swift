@@ -23,8 +23,7 @@ final class ImageListViewControllerSpy: ImagesListViewControllerProtocol {
     }
     
     func setLike() {
-        presenter?.setLike(photoId: "test", isLike: true) {[weak self ]result in
-            guard let self = self else { return }
+        presenter?.setLike(photoId: "test", isLike: true) {result in
             switch result {
             case .success(_):
                 break

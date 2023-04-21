@@ -19,7 +19,7 @@ final class ProfileImageService {
     func fetchProfileImageURL(userName: String, _ completion: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
         task?.cancel()
-        var request = URLRequest.makeHTTPRequest(path: "users/\(userName)", httpMethod: get)
+        var request = URLRequest.makeHTTPRequest(path: "users/\(userName)", httpMethod: "GET")
         if let token = oAuth2TokenStorage.token {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }

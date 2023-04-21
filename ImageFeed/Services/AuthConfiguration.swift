@@ -13,9 +13,6 @@ let RedirectURI = "urn:ietf:wg:oauth:2.0:oob"
 let AccessScope = "public+read_user+write_likes"
 let profilePath = "me"
 let photosPath = "photos"
-let get = "GET"
-let post = "POST"
-let delete = "DELETE"
 
 var DefaultBaseURL: URL {
     guard let url = URL(string: "https://api.unsplash.com/") else {
@@ -24,7 +21,8 @@ var DefaultBaseURL: URL {
     return url
 }
 
-let unsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
+let UnsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
+
 
 struct AuthConfiguration {
     let accessKey: String
@@ -43,12 +41,12 @@ struct AuthConfiguration {
         self.authURLString = authURLString
     }
     
-    static var standard: AuthConfiguration {
+    static var standart: AuthConfiguration {
         return AuthConfiguration(accessKey: AccessKey,
                                  secretKey: SecretKey,
                                  redirectURI: RedirectURI,
                                  accessScope: AccessScope,
                                  defaultBaseURL: DefaultBaseURL,
-                                 authURLString: unsplashAuthorizeURLString)
+                                 authURLString: UnsplashAuthorizeURLString)
     }
 }

@@ -15,9 +15,9 @@ final class SingleImageViewController: UIViewController {
             setImage(url: imageURL)
         }
     }
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var imageView: UIImageView!
-    @IBAction func didTapBackButton(_ sender: Any) {
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private var imageView: UIImageView!
+    @IBAction private func didTapBackButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -29,9 +29,11 @@ final class SingleImageViewController: UIViewController {
         setImage(url: imageURL)
     }
     
-    @IBAction func didTapShareButton(_ sender: Any) {
-        let shareVC = UIActivityViewController(activityItems: [imageView.image], applicationActivities: nil)
-        present(shareVC, animated: true)
+    @IBAction private func didTapShareButton(_ sender: Any) {
+        let activityViewController = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
+        activityViewController.view.backgroundColor = .ypBlack
+               activityViewController.overrideUserInterfaceStyle = .dark
+        present(activityViewController, animated: true)
     }
     
     func setImage(url: URL?) {

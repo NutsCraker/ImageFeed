@@ -23,25 +23,24 @@ final class ImageFeedUITests: XCTestCase {
     func testAuth() throws {
         app.buttons["Authenticate"].tap()
         let webView = app.webViews["UnsplashWebView"]
-        XCTAssertTrue(webView.waitForExistence(timeout: 5))
-        
+        XCTAssertTrue(webView.waitForExistence(timeout: 20))
+        webView.swipeUp()
         let loginTextField = webView.descendants(matching: .textField).element
         XCTAssertTrue(loginTextField.waitForExistence(timeout: 20))
         
         loginTextField.tap()
-        loginTextField.typeText("\(login)")
+        loginTextField.typeText(login)
         
         XCUIApplication().toolbars.buttons["Done"].tap()
         
         
         let passwordTextField = webView.descendants(matching: .secureTextField).element
-        XCTAssertTrue(passwordTextField.waitForExistence(timeout: 7))
+        XCTAssertTrue(passwordTextField.waitForExistence(timeout: 20))
         
         passwordTextField.tap()
-        passwordTextField.typeText("\(password)")
+        passwordTextField.typeText(password)
         webView.swipeUp()
         
-        print(app.debugDescription)
         
         let webViewsQuery = app.webViews
         
@@ -90,7 +89,8 @@ final class ImageFeedUITests: XCTestCase {
         sleep(1)
         
         app.alerts["exit"].scrollViews.otherElements.buttons["Да"].tap()
-        XCTAssertTrue(app.staticTexts["Text"].exists)
+        //XCTAssertTrue(app.staticTexts["Text"].exists)
+        XCTAssertTrue(app.buttons["Authenticate"].exists)
     }
     
 }

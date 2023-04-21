@@ -23,7 +23,8 @@ final class ProfilePresenter: ProfilePresenterProtocol {
     var profileService = ProfileService.shared
     
     func exit() {
-        oAuth2TokenStorage.removeToken()
+        OAuth2TokenStorage().token = nil
+        //oAuth2TokenStorage.removeToken()
         WebViewViewController.clean()
         guard let window = UIApplication.shared.windows.first else { return assertionFailure("Invalid Configuration") }
         let authVC = UIStoryboard(name: "Main", bundle: .main)

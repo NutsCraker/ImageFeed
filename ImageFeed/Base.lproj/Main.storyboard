@@ -54,8 +54,9 @@
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-sm-XuY" userLabel="Back">
                                 <rect key="frame" x="15" y="78" width="33" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="backButton"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backward"/>
                                 <connections>
                                     <action selector="didTapBackButton:" destination="aFL-ti-r2J" eventType="touchUpInside" id="h7k-9b-U0i"/>
                                 </connections>
@@ -202,27 +203,6 @@
             </objects>
             <point key="canvasLocation" x="-923.07692307692309" y="852.36966824644549"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2gE-C5-I7V">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ep1-pB-EJ4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_editorial_active" id="Qbq-EN-Q2t"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lMD-kI-wHf">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="YPWhite"/>
-                        <color key="barTintColor" name="YPWhite"/>
-                        <navigationBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" name="YPBlack"/>
-                        </navigationBarAppearance>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b7X-Tv-6bV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-408" y="18"/>
-        </scene>
         <!--WebViewViewController-->
         <scene sceneID="eH1-63-UjI">
             <objects>
@@ -232,12 +212,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wW-cU-KZv">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="96" width="390" height="748"/>
                                 <color key="backgroundColor" name="YPWhite"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="UnsplashWebView"/>
+                                </userDefinedRuntimeAttributes>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5K-6r-0fZ" userLabel="Back">
                                 <rect key="frame" x="16" y="62" width="63" height="22"/>
@@ -256,7 +239,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="4wW-cU-KZv" secondAttribute="trailing" id="6mQ-G8-Abg"/>
-                            <constraint firstItem="4wW-cU-KZv" firstAttribute="top" secondItem="Bng-vf-4Er" secondAttribute="top" id="6tq-yO-EFg"/>
+                            <constraint firstItem="4wW-cU-KZv" firstAttribute="top" secondItem="cks-nB-8MK" secondAttribute="bottom" constant="8" symbolic="YES" id="6tq-yO-EFg"/>
                             <constraint firstItem="cks-nB-8MK" firstAttribute="top" secondItem="g5K-6r-0fZ" secondAttribute="bottom" id="7GB-1C-zls"/>
                             <constraint firstAttribute="trailing" secondItem="cks-nB-8MK" secondAttribute="trailing" id="86n-C1-8Q7"/>
                             <constraint firstAttribute="bottom" secondItem="4wW-cU-KZv" secondAttribute="bottom" id="Rl7-Vs-GRu"/>
@@ -281,9 +264,8 @@
         <image name="0" width="200" height="132"/>
         <image name="Active" width="30" height="26"/>
         <image name="Sharing" width="51" height="50"/>
-        <image name="chevron.backward" width="9" height="16"/>
+        <image name="backward" width="9" height="16"/>
         <image name="nav_back_button" width="9" height="16"/>
-        <image name="tab_editorial_active" width="20" height="22"/>
         <namedColor name="YPBlack">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

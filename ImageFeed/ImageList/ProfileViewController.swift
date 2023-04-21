@@ -27,7 +27,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
     var profileName = UILabel()
     var profileContact = UILabel()
     var profileAbout = UILabel()
-    private let logOutButton = UIButton.systemButton(with: UIImage(named: "ipad.and.arrow.forward")!, target: nil, action: #selector(Self.didTapButton))
+    private let logOutButton = UIButton.systemButton(with: UIImage(named: "logout")!, target: nil, action: #selector(Self.didTapButton))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,8 +87,8 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
 extension ProfileViewController {
     func updateAvatar() {
         guard let url = presenter?.getUrlForProfileImage() else { return  }
-        let processor = RoundCornerImageProcessor(cornerRadius: 61, backgroundColor: .clear)
-        profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder.jpeg"), options: [.processor(processor), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
+        let processor = RoundCornerImageProcessor(cornerRadius: 50, backgroundColor: .clear)
+        profilePhoto.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: [.processor(processor), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
         profilePhoto.kf.indicatorType = .activity
     }
     
